@@ -35,7 +35,7 @@ export default function PieChart() {
     };
   }, []);
   return (
-    <div className="w-[250px] h-[250px]">
+    <div className="w-[350px] h-[300px]">
       <canvas ref={chartRef} style={{ width: "300px", height: "100px" }} />
     </div>
   );

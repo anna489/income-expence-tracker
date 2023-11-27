@@ -33,7 +33,12 @@ const LogIn = () => {
             />
           </div>
           <div className="flex justify-center mt-5 ">
-            <button className="btn btn-active text-gl text-white w-full  btn-primary bg-[#0166FF] max-w-xs">
+            <button
+              className="btn btn-active text-gl text-white w-full  btn-primary bg-[#0166FF] max-w-xs  "
+              onClick={() => {
+                router.push("/SignUp");
+              }}
+            >
               Log in
             </button>
           </div>

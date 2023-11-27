@@ -2,7 +2,7 @@ import React from "react";
 
 const DashNav = () => {
   return (
-    <div className="navbar bg-base-100 px-[120px] ">
+    <div className="navbar bg-base-100 px-[300px] ">
       {/* Logo */}
       <div className="flex-1 ">
         <a className="btn btn-ghost text-xl">
@@ -22,11 +22,13 @@ const DashNav = () => {
         <a href="/Dashboard" className="mr-4 font-semibold text-[16px]">
           Dashboard
         </a>
-        <a href="/Record">Record</a>
+        <a href="/Record" className=" font-semibold">
+          Record
+        </a>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1 flex justify-center items-center">
-          <li className="font-medium  bg-[#0166FF]  text-white rounded-3xl ">
+        <ul className="menu menu-horizontal px-1  flex justify-center items-center">
+          <li className=" font-semibold  bg-[#0166FF]  text-white rounded-3xl ">
             <a>+ Record</a>
           </li>
           <li>

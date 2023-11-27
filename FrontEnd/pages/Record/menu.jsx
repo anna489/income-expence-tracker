@@ -19,9 +19,9 @@ const Menu = () => {
   ];
 
   return (
-    <div className="1">
+    <div>
       <div className="drawer lg:drawer-open flex ">
-        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle " />
         <div className="drawer-content flex flex-col items-center justify-center ">
           <label
             htmlFor="my-drawer-2"
@@ -34,9 +34,9 @@ const Menu = () => {
           <label
             htmlFor="my-drawer-2"
             aria-label="close sidebar"
-            className="drawer-overlay"
+            className="drawer-overlay "
           ></label>
-          <ul className="menu p-4 w-60 min-h-full bg-state-400 border rounded-lg mt-10 text-base-content">
+          <ul className="menu p-4 w-[90%] min-h-full bg-state-400 border rounded-lg mt-10 text-base-content bg-white ">
             <h2 className="text-2xl font-semibold">Records</h2>
             <button
               className="btn bg-[#0166FF] text-white mt-2"
