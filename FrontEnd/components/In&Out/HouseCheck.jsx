@@ -40,7 +40,9 @@ const HouseCheck = () => {
         </div>{" "}
         <div>
           {" "}
-          <h1 className="text-lg">{Todays.map((Today) => {})}cdbfv </h1>
+          <h1 className="text-lg">
+            {Todays.map((Today) => {})}Lending & Renting{" "}
+          </h1>
           <p className="text-sm text-[#64748B]">3 hours</p>
         </div>
       </div>
