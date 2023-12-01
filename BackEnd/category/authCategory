@@ -1,0 +1,13 @@
+// const { sql } = require("../config/pgDb");
+// const bcrypt = require("bcrypt");
+
+// const category= async (req, res)=>{
+//     try{
+//         const {iconname, color}=req.body
+//         await sql`INSERT INTO users`
+//     }
+// }
+
+
+
+// module.exports = 
