@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { category, categorycheck } = require("../category/authCategory");
+const { category, categorycheck } = require("../controller/authCategory");
 
 const router = Router();
 

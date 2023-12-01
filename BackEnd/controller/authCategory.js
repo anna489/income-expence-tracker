@@ -4,26 +4,26 @@ const bcrypt = require("bcrypt");
 const category = async (req, res) => {
   try {
     const { name, color, avatarImage } = req.body;
-    await sql`INSERT INTO users(color, name, avatarImage) VALUES(${color}, ${name}, ${avatarImage})`;
+    await sql`INSERT INTO category(color, name, avatarImg) VALUES(${color}, ${name}, ${avatarImage})`;
     res.status(201).json({ message: "success" });
   } catch (error) {
-    res.status(500).json({ message: "failed" });
+    res.status(500).json({ message: error });
   }
 };
 
 const categorycheck = async (req, res) => {
   try {
-    const { useravatariImage, userName } = req.body;
+    const { userAvatariImage, userName } = req.body;
 
     const findUser =
-      await sql`SELECT name, color, avatarImage FROM category WHERE email=${userName}`;
+      await sql`SELECT name, color, avatarImage FROM category WHERE name=${userName}`;
 
     if (findUser.length === 0) {
       return res.status(400).json({ message: "category not found" });
     }
 
     const isCheck = bcrypt.compareSync(
-      useravatariImage,
+      userAvatariImage,
       findUser[0].avatarImage
     );
 
