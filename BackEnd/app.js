@@ -4,6 +4,7 @@ require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
 const cathRoutes = require("./routes/cathRoutes");
 const imageRoutes = require("./routes/imageRoutes");
+const transacRouter = require("./routes/transacRouter");
 
 const PORT = process.env.PORT;
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/auth", cathRoutes);
 app.use("/api/image", imageRoutes);
+app.use("/auth", transacRouter);
 
 app.listen(PORT, () => {
   console.log(`==Server ${PORT} deer aslaa==`);
