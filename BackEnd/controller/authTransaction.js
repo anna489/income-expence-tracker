@@ -11,40 +11,34 @@ const transaction = async (req, res) => {
   }
 };
 
-
 const gettransaction = async (req, res) => {
   try {
     const { user_id } = req.body;
-    const findTrans= 
-    await sql`SELECT user_id, name FROM transaction WHERE  user_id=${user_id}`;
+    const findTrans =
+      await sql`SELECT user_id, name FROM transaction WHERE  user_id=${user_id}`;
 
     if (findTrans.length === 0) {
       return res.status(400).json({ message: "user not found" });
     }
-    res.status(201).json({ message: "success" , user_id});
+    res.status(201).json({ message: "success", user_id });
   } catch (error) {
     res.status(500).json({ message: error });
   }
 };
 
-
-const puttransaction = async (req, res) => {
+const deletetransaction = async (req, res) => {
   try {
-    const { user_id, name, amount, description } = req.body;
+    const { user_id } = req.body;
 
-    const findTrans= 
-    await sql`SELECT user_id, name FROM transaction WHERE  user_id=${user_id}`;
+    const findTrans =
+      await sql`DELETE user_id name FROM transaction WHERE user_id=${user_id}`;
     if (findTrans.length === 0) {
       return res.status(400).json({ message: "user not found" });
     }
-
-    await sql`UPDATE INTO transaction( name, amount, description) 
-    VALUES(${name}, ${amount}, ${description} )`;
     res.status(201).json({ message: "success" });
   } catch (error) {
     res.status(500).json({ message: error });
   }
 };
 
-
-module.exports = { transaction , gettransaction , puttransaction};
+module.exports = { transaction, gettransaction, deletetransaction };
