@@ -4,12 +4,14 @@ import DothBlue from "@/components/Doth/DothBlue";
 import Up from "@/components/Up&Down/Up";
 import Down from "@/components/Up&Down/Down";
 import Chart from "./chart";
+import DashNav from "@/components/DashNav";
 
 import HouseCheck from "@/components/In&Out/HouseCheck";
 
 const Dashboard = () => {
   return (
     <div className="px-[300px] bg-[#F3F4F6] h-full">
+      <DashNav />
       <div className="flex-wrap flex justify-center gap-10  ">
         <div className="card w-[30%] bg-[#3364d7] h-[300px] shadow-xl   mt-10">
           <img className="w-full h-full absolute" src="/images/Noise.png" />

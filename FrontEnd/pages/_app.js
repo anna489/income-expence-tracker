@@ -1,13 +1,10 @@
 import "@/styles/globals.css";
-import Layout from "@/components/Layout";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import UserProvider from "@/context/UserProvider";
 
 export default function App({ Component, pageProps }) {
   return (
-    <ErrorBoundary>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ErrorBoundary>
+    <UserProvider>
+      <Component {...pageProps} />
+    </UserProvider>
   );
 }
