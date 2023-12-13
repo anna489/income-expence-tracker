@@ -19,10 +19,10 @@ const DashNav = () => {
             />
           </svg>
         </a>
-        <a href="/Dashboard" className="mr-4 font-semibold text-[16px]">
+        <a href="/dashboard" className="mr-4 font-semibold text-[16px]">
           Dashboard
         </a>
-        <a href="/Records" className=" font-semibold">
+        <a href="/records" className=" font-semibold">
           Record
         </a>
       </div>

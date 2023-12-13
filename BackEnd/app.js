@@ -1,6 +1,6 @@
 const express = require("express");
 require("dotenv").config();
-const cors = ("cors")
+const cors = require("cors");
 
 const authRoutes = require("./routes/authRoutes");
 const cathRoutes = require("./routes/cathRoutes");
@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 
 const app = express();
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 
 // Authentication

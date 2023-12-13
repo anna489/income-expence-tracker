@@ -10,7 +10,7 @@ const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loginUserData, setLoginUserData] = useState({
     email: "naraa@gmail.com",
-    password: "",
+    password: "anna",
   });
 
   const changeLoginUserData = (key, value) => {

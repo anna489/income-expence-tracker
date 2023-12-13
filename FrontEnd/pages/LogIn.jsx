@@ -58,7 +58,7 @@ const LogIn = () => {
             <button
               className="text-[#0166FF]"
               onClick={() => {
-                router.push("/SignUp");
+                router.push("/signUp");
               }}
             >
               Sign up
