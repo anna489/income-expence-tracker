@@ -22,7 +22,7 @@ const DashNav = () => {
         <a href="/Dashboard" className="mr-4 font-semibold text-[16px]">
           Dashboard
         </a>
-        <a href="/Record" className=" font-semibold">
+        <a href="/Records" className=" font-semibold">
           Record
         </a>
       </div>
@@ -32,7 +32,7 @@ const DashNav = () => {
             <a>+ Record</a>
           </li>
           <li>
-            <img src={"./images/Avatar.png"} className=" " />
+            <img src={"./images/Avatar.png"} className=" " href="./profile" />
           </li>
         </ul>
       </div>

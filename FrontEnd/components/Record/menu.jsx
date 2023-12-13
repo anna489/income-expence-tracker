@@ -122,7 +122,7 @@ const Menu = () => {
               type="range"
               min={0}
               max="100"
-              value="40"
+              value="20"
               className="range mt-6 "
             />
           </ul>

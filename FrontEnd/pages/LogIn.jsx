@@ -1,9 +1,12 @@
 import React from "react";
 import Logo from "@/components/Logo/Logo";
+import { UserContext } from "@/context/UserProvider";
 import { useRouter } from "next/router";
+import { useContext } from "react";
 
 const LogIn = () => {
   const router = useRouter();
+  const { loginUserData, changeLoginUserData, login } = useContext(UserContext);
 
   return (
     <div className="flex h-screen w-screen bg-white">
@@ -25,19 +28,25 @@ const LogIn = () => {
               type="text"
               placeholder="Email"
               className=" flex justify-center input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
+              onChange={(e) => {
+                changeLoginUserData(e.target.name, e.target.value);
+              }}
+              value={loginUserData.email}
             />
             <input
               type="text"
               placeholder="Password"
+              onChange={(e) => {
+                changeLoginUserData(e.target.name, e.target.value);
+              }}
+              value={loginUserData.password}
               className=" mt-3 input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
             />
           </div>
           <div className="flex justify-center mt-5 ">
             <button
               className="btn btn-active text-gl text-white w-full  btn-primary bg-[#0166FF] max-w-xs  "
-              onClick={() => {
-                router.push("/SignUp");
-              }}
+              onClick={login}
             >
               Log in
             </button>
