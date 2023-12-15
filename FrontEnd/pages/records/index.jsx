@@ -1,6 +1,6 @@
 import React from "react";
-import Menu from "../components/Record/menu";
-import Container from "../components/Record/container";
+import Menu from "../../components/Record/menu";
+import Container from "../../components/Record/container";
 import DashNav from "@/components/DashNav";
 
 const Record = () => {

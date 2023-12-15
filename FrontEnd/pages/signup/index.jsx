@@ -1,13 +1,9 @@
 import React from "react";
 import Logo from "@/components/Logo/Logo";
-import { UserContext } from "@/context/UserProvider";
 import { useRouter } from "next/router";
-import { useContext } from "react";
 
-const LogIn = () => {
+const signUp = () => {
   const router = useRouter();
-  const { loginUserData, changeLoginUserData, login } = useContext(UserContext);
-
   return (
     <div className="flex h-screen w-screen bg-white">
       <section className="flex-1 flex justify-center items-center">
@@ -16,52 +12,56 @@ const LogIn = () => {
             <Logo />
           </div>
           <div className="flex justify-center mt-5">
-            <h1 className="text-2xl font-semibold">Welcome Back </h1>
+            <h1 className="text-2xl font-semibold">Create Geld account </h1>
           </div>
           <div className="flex justify-center">
             <p className="text-base font-normal leading-6  p-2">
-              Welcome back, Please enter your details
+              Sign up below to create your Wallet account
             </p>
           </div>
-          <div className=" mt-6">
+          <div className=" mt-6 item-center">
+            <input
+              type="text"
+              placeholder="Name"
+              className=" flex justify-center input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
+            />
             <input
               type="text"
               placeholder="Email"
-              className=" flex justify-center input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
-              onChange={(e) => {
-                changeLoginUserData(e.target.name, e.target.value);
-              }}
-              value={loginUserData.email}
+              className=" mt-3 flex justify-center input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
             />
             <input
               type="text"
               placeholder="Password"
-              onChange={(e) => {
-                changeLoginUserData(e.target.name, e.target.value);
-              }}
-              value={loginUserData.password}
+              className=" mt-3 flex justify-center input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
+            />
+            <input
+              type="text"
+              placeholder="Re-Password"
               className=" mt-3 input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
             />
           </div>
           <div className="flex justify-center mt-5 ">
             <button
-              className="btn btn-active text-gl text-white w-full  btn-primary bg-[#0166FF] max-w-xs  "
-              onClick={login}
+              className="btn btn-active text-gl text-white w-full  btn-primary bg-[#0166FF] max-w-xs"
+              onClick={() => {
+                router.push("/dashboard");
+              }}
             >
-              Log in
+              Sign up
             </button>
           </div>
           <div className="flex justify-center mt-5">
             <div className="mr-2">
-              <p>Don’t have account?</p>
+              <p>Already have account? </p>
             </div>
             <button
-              className="text-[#0166FF]"
               onClick={() => {
-                router.push("/signUp");
+                router.push("/LogIn");
               }}
+              className="text-[#0166FF]"
             >
-              Sign up
+              Log in
             </button>
           </div>
         </div>
@@ -71,4 +71,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default signUp;

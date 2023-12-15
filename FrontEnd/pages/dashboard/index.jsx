@@ -3,7 +3,7 @@ import Doth from "@/components/Doth/DothGreen";
 import DothBlue from "@/components/Doth/DothBlue";
 import Up from "@/components/Up&Down/Up";
 import Down from "@/components/Up&Down/Down";
-import Chart from "../components/Chart/Chart";
+import Chart from "../../components/Chart/Chart";
 import DashNav from "@/components/DashNav";
 
 import HouseCheck from "@/components/In&Out/HouseCheck";
