@@ -1,10 +1,20 @@
 import React from "react";
 import Logo from "@/components/Logo/Logo";
-import { useRouter } from "next/router";
 import Money from "@/components/Logo/Money";
+import { StepContext } from "../../context/stepContext";
+import React, { useContext } from "react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Currency = () => {
   const router = useRouter();
+  const handleBalanceClick = () => {
+    router.push("/step_two");
+  };
+
+  useEffect(() => {}, []);
+  const { changeStepData, changeStep } = useContext(StepContext);
+
   return (
     <div className=" h-screen mx-auto justify-center bg-white ">
       <div>
@@ -42,7 +52,14 @@ const Currency = () => {
             <h1 className="text-2xl text-black">Select base currency</h1>
           </div>
           <div className="flex justify-center mt-8">
-            <select className="select select-primary w-full max-w-xs">
+            <select
+              className="select select-primary w-full max-w-xs"
+              onChange={(e) => {
+                console.log(e.target.name);
+                console.log(e.target.value);
+                changeStepData(e.target.name, e.target.value);
+              }}
+            >
               <option>MNT-Mongolian Tugrik</option>
               <option>USA-Dollar</option>
               <option>Korean-EOW</option>
@@ -58,9 +75,9 @@ const Currency = () => {
           <div className="flex justify-center ">
             <button
               className="text-white bg-primary rounded-2xl p-2 w-[25%]"
-              onClick={() => {
-                router.push("/Balance");
-              }}
+              onClick={changeStep}
+              type="submit"
+              value="Submit"
             >
               Confirm
             </button>

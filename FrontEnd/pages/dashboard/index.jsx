@@ -10,7 +10,7 @@ import HouseCheck from "@/components/In&Out/HouseCheck";
 
 const Dashboard = () => {
   return (
-    <div className="px-[300px] bg-[#F3F4F6] h-full">
+    <div className="px-[100px] bg-[#F3F4F6] h-full">
       <DashNav />
       <div className="flex-wrap flex justify-center gap-10  ">
         <div className="card w-[30%] bg-[#3364d7] h-[300px] shadow-xl   mt-10">

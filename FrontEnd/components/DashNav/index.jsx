@@ -2,7 +2,7 @@ import React from "react";
 
 const DashNav = () => {
   return (
-    <div className="navbar bg-base-100 px-[300px] ">
+    <div className="navbar bg-base-100 ">
       {/* Logo */}
       <div className="flex-1 ">
         <a className="btn btn-ghost text-xl">

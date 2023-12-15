@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import { UserContext } from "@/context/UserProvider";
+import Logo from "../../components/Logo/Logo";
 
 const Login = () => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const Login = () => {
   return (
     <div className="flex w-screen h-screen">
       <div className="flex-1 flex flex-col items-center justify-center bg-white gap-3">
-        <img src="Geld.svg" />
+        <Logo />
         <h3 className="font-semibold text-xl text-gray-700 ">Welcome Back</h3>
         <p className="text-gray-300">Welcome back, Please enter your details</p>
         <input

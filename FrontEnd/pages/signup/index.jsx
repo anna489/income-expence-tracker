@@ -1,74 +1,87 @@
 import React from "react";
-import Logo from "@/components/Logo/Logo";
 import { useRouter } from "next/router";
+import { useEffect, useContext } from "react";
+import { UserContext } from "../../context/UserProvider";
+import Logo from "../../components/Logo/Logo";
 
-const signUp = () => {
+const SignUp = () => {
   const router = useRouter();
+  const handleSignUpClick1 = () => {
+    router.push("/login");
+  };
+
+  useEffect(() => {}, []);
+
+  const { changeFormUserData, signup } = useContext(UserContext);
+
   return (
-    <div className="flex h-screen w-screen bg-white">
-      <section className="flex-1 flex justify-center items-center">
-        <div className="">
-          <div className="flex justify-center">
-            <Logo />
-          </div>
-          <div className="flex justify-center mt-5">
-            <h1 className="text-2xl font-semibold">Create Geld account </h1>
-          </div>
-          <div className="flex justify-center">
-            <p className="text-base font-normal leading-6  p-2">
-              Sign up below to create your Wallet account
-            </p>
-          </div>
-          <div className=" mt-6 item-center">
-            <input
-              type="text"
-              placeholder="Name"
-              className=" flex justify-center input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
-            />
-            <input
-              type="text"
-              placeholder="Email"
-              className=" mt-3 flex justify-center input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
-            />
-            <input
-              type="text"
-              placeholder="Password"
-              className=" mt-3 flex justify-center input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
-            />
-            <input
-              type="text"
-              placeholder="Re-Password"
-              className=" mt-3 input p-2 input-bordered border rounded-lg border-[#A3A3A3] input-primary w-full max-w-xs"
-            />
-          </div>
-          <div className="flex justify-center mt-5 ">
-            <button
-              className="btn btn-active text-gl text-white w-full  btn-primary bg-[#0166FF] max-w-xs"
-              onClick={() => {
-                router.push("/dashboard");
-              }}
-            >
-              Sign up
-            </button>
-          </div>
-          <div className="flex justify-center mt-5">
-            <div className="mr-2">
-              <p>Already have account? </p>
-            </div>
-            <button
-              onClick={() => {
-                router.push("/LogIn");
-              }}
-              className="text-[#0166FF]"
-            >
-              Log in
-            </button>
-          </div>
+    <div className="flex w-screen h-screen">
+      <div className="flex-1 flex flex-col items-center justify-center bg-white gap-3">
+        <div className="flex gap-2">
+          <Logo />
         </div>
-      </section>
-      <section className="flex-1 bg-[#0166FF]"></section>
+        <h3 className="font-semibold text-xl text-gray-700 ">
+          Create Geld account
+        </h3>
+        <p className="text-gray-300">
+          Sign up below to create your wallet account
+        </p>
+        <input
+          type="text"
+          placeholder="Name"
+          className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full mt-6 max-w-xs"
+          name="name"
+          onChange={(e) => {
+            changeFormUserData(e.target.name, e.target.value);
+          }}
+          value={changeFormUserData.user}
+        />
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
+          onChange={(e) => {
+            changeFormUserData(e.target.name, e.target.value);
+          }}
+          value={changeFormUserData.email}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
+          onChange={(e) => {
+            changeFormUserData(e.target.name, e.target.value);
+          }}
+          value={changeFormUserData.password}
+        />
+        <input
+          type="password"
+          name="rePassword"
+          placeholder="Re-password"
+          className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
+          onChange={(e) => {
+            changeFormUserData(e.target.name, e.target.value);
+          }}
+          value={changeFormUserData.rePassword}
+        />
+        <button
+          onClick={signup}
+          className="btn bg-[#0166FF] border-[#0166FF] w-full max-w-xs text-lg text-white font-normal rounded-full"
+        >
+          Sign up
+        </button>
+        <div className="flex gap-2 mt-7">
+          <h3 className="text-[#334155]">Already have account?</h3>
+          <button onClick={handleSignUpClick1} className="text-[#0166FF]">
+            Log in
+          </button>
+        </div>
+      </div>
+      <div className="flex-1 bg-[#0166FF] "></div>
     </div>
   );
 };
 
-export default signUp;
+export default SignUp;
