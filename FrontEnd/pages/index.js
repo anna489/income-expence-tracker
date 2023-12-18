@@ -20,7 +20,7 @@ export default function Home() {
     return null;
   }
   return (
-    <div className="w-full bg-gray-200 h-screen">
+    <div>
       <Dashboard />
     </div>
   );

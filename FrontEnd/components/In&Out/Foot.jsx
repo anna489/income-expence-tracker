@@ -2,7 +2,7 @@ import React from "react";
 
 const Foot = () => {
   return (
-    <div className="flex items-center justify-between p-2 mt-2 border rounded-lg bg-white">
+    <div className="flex items-center justify-between p-4 mt-2 border rounded-lg bg-white">
       <div className="flex gap-6 items-center ">
         <input type="checkbox" className="checkbox " disabled />
         <div className="h-8 w-8 justify-center  bg-[#FF4545] flex items-center rounded-full">

@@ -2,7 +2,7 @@ import React from "react";
 
 const House = () => {
   return (
-    <div className="flex items-center justify-between p-2 rounded-lg bg-white mt-2 ">
+    <div className="flex items-center justify-between p-4 rounded-lg bg-white mt-2 ">
       <div className="flex gap-6 items-center ">
         <input type="checkbox" className="checkbox " disabled />
         <div className="h-8 w-8 justify-center  bg-[#0166FF] flex items-center rounded-full">

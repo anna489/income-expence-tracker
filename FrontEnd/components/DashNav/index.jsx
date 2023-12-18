@@ -2,7 +2,7 @@ import React from "react";
 
 const DashNav = () => {
   return (
-    <div className="navbar bg-base-100 ">
+    <div className="navbar bg-base-100 px-[100px]  ">
       {/* Logo */}
       <div className="flex-1 ">
         <a className="btn btn-ghost text-xl">
@@ -32,7 +32,9 @@ const DashNav = () => {
             <a>+ Record</a>
           </li>
           <li>
-            <img src={"./images/Avatar.png"} className=" " href="./profile" />
+            <a href="./profile">
+              <img src={"./images/Avatar.png"} className=" " />
+            </a>
           </li>
         </ul>
       </div>

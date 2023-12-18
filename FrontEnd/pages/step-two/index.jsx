@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "@/components/Logo/Logo";
 import { useRouter } from "next/router";
 import Cash from "@/components/Logo/Cash";
+import { StepContext } from "../../context/stepContext";
 
 const Balance = () => {
   const router = useRouter();
+  const { changeStep } = useContext(StepContext);
+  const { changeStepData, stepData } = useContext(StepContext);
+
   return (
     <div className=" flex justify-center h-screen  items-start bg-white">
       <div>
@@ -15,7 +19,7 @@ const Balance = () => {
           <ul className="steps">
             <li
               onClick={() => {
-                router.push("/Currency");
+                router.push("/step-one");
               }}
               className="step pr-4 step-primary text-black"
             >
@@ -23,7 +27,7 @@ const Balance = () => {
             </li>
             <li
               onClick={() => {
-                router.push("/Balance");
+                router.push("/step-two");
               }}
               className="step step-primary pr-4 text-black"
             >
@@ -31,7 +35,7 @@ const Balance = () => {
             </li>
             <li
               onClick={() => {
-                router.push("/Finish");
+                router.push("/step-three");
               }}
               className="step text-black"
             >
@@ -50,9 +54,12 @@ const Balance = () => {
           </div>
           <div className=" flex justify-center mt-8 ">
             <input
-              type="text"
-              placeholder="Email"
+              type="number"
+              placeholder="balance"
               className="rounded-lg p-2 bg-white border w-[80%]"
+              onChange={(e) => {
+                changeStepData(e.target.name, e.target.value);
+              }}
             />
           </div>
           <div className=" flex justify-center p-6">
@@ -64,7 +71,8 @@ const Balance = () => {
             <button
               className="text-white bg-primary rounded-2xl p-2 w-[80%]"
               onClick={() => {
-                router.push("/Finish");
+                changeStep();
+                router.push("/step-three");
               }}
             >
               Confirm

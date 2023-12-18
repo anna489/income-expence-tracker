@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "@/components/Logo/Logo";
 import Money from "@/components/Logo/Money";
 import { StepContext } from "../../context/stepContext";
@@ -10,6 +9,11 @@ const Currency = () => {
   const router = useRouter();
   const handleBalanceClick = () => {
     router.push("/step_two");
+  };
+
+  const gotoStep = () => {
+    changeStep();
+    router.push("/step-two");
   };
 
   useEffect(() => {}, []);
@@ -26,7 +30,7 @@ const Currency = () => {
             <li className="step pr-4 step-primary text-black">Currency</li>
             <li
               onClick={() => {
-                router.push("/Balance");
+                router.push("/step-two");
               }}
               className="step pr-4 text-black"
             >
@@ -34,7 +38,7 @@ const Currency = () => {
             </li>
             <li
               onClick={() => {
-                router.push("/Finish");
+                router.push("/step-three");
               }}
               className="step text-black"
             >
@@ -75,7 +79,7 @@ const Currency = () => {
           <div className="flex justify-center ">
             <button
               className="text-white bg-primary rounded-2xl p-2 w-[25%]"
-              onClick={changeStep}
+              onClick={gotoStep}
               type="submit"
               value="Submit"
             >

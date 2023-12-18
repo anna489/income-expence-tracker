@@ -15,7 +15,7 @@ const Finish = () => {
           <ul className="steps">
             <li
               onClick={() => {
-                router.push("/Currency");
+                router.push("/step-one");
               }}
               className="step pr-4 step-primary text-black"
             >
@@ -23,7 +23,7 @@ const Finish = () => {
             </li>
             <li
               onClick={() => {
-                router.push("/Balance");
+                router.push("/step-two");
               }}
               className="step step-primary pr-4 text-black"
             >
@@ -31,7 +31,7 @@ const Finish = () => {
             </li>
             <li
               onClick={() => {
-                router.push("/Finish");
+                router.push("/step-three");
               }}
               className="step step-primary text-black"
             >
@@ -59,7 +59,7 @@ const Finish = () => {
           <button
             className="text-white bg-primary rounded-2xl p-2 w-[100%]"
             onClick={() => {
-              router.push("/Dashboard");
+              router.push("/dashboard");
             }}
           >
             Go to Dashboard
