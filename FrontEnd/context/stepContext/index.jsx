@@ -1,11 +1,12 @@
+import { useContext } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
 import { UserContext } from "../UserProvider";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
-const { createContext, useState, useEffect, useContext } = require("react");
+const { createContext, useState } = require("react");
 
-export const StepContext = createContext("light ");
+export const StepContext = createContext();
 
 export const StepProvider = ({ children }) => {
   const router = useRouter();
@@ -13,17 +14,15 @@ export const StepProvider = ({ children }) => {
   const [step, setStep] = useState(1);
   const [stepData, setStepData] = useState({
     currency_type: "",
-    balance: 10,
+    balance: 0,
   });
-
   const changeStep = () => {
-    setStep((prevStep) => prevStep + 1);
+    setStep((step) => step + 1);
   };
 
   const changeStepData = (key, value) => {
-    setStepData((prevStep) => ({ ...stepData, [key]: value }));
+    setStepData((prevStepData) => ({ ...prevStepData, [key]: value }));
   };
-
   const goToDashboard = async () => {
     try {
       const { data } = await axios.put(
@@ -33,12 +32,10 @@ export const StepProvider = ({ children }) => {
           balance: stepData.balance,
         }
       );
-      console.log("first", data);
       setUser(data.user);
       router.push("/");
     } catch (error) {
-      console.log("error", error);
-      // toast.error(`${error.response.data.message}`, { autoClose: 3000 });
+      toast.error(` ${error}aldaa `, { autoClose: 3000 });
     }
   };
 

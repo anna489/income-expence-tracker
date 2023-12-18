@@ -44,7 +44,7 @@ const UserProvider = ({ children }) => {
       });
       console.log("DDD++++++>", data.user);
       setUser(data.user);
-      router.push("/");
+      router.push("/dashboard");
     } catch (error) {
       console.log("error", error);
       toast.error(`${error.response.data.message}`, { autoClose: 3000 });
@@ -74,7 +74,7 @@ const UserProvider = ({ children }) => {
     }
 
     try {
-      const { data } = await axios.post("http://localhost:8008/auth/signup", {
+      const { data } = await axios.post("http://localhost:8006/auth/signup", {
         email: formUserData.email,
         password: formUserData.password,
         name: formUserData.name,
