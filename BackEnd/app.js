@@ -19,7 +19,7 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 // s
 app.use("/api/image", imageRoutes);
-app.use("/categories/", categoryRoutes);
+app.use("/", categoryRoutes);
 app.use("/transactions/", transactionRoutes);
 
 app.listen(PORT, () => {

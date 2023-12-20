@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AddCategory from "./addCategory";
+import { TransactionContext } from "../../context/TransactionContext";
+import axios from "axios";
 
 const Add = () => {
+  const [category, setCategory] = useState([]);
+  const { transactionData, changeTransactionData, addTransaction } =
+    useContext(TransactionContext);
+
+  const addRecord = async () => {
+    await addTransaction();
+    console.log("CLOSE");
+    closeForm();
+  };
+
+  const getCategories = async () => {
+    const {
+      data: { categories },
+    } = await axios.get("http://localhost:8008/categories");
+    console.log("RES", categories);
+    setCategory(categories);
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   return (
     <div>
-      {" "}
       <dialog
         id="my_modal_5"
         className="modal flex justify-center items-center "
@@ -17,67 +40,111 @@ const Add = () => {
             </form>
           </div>
           <div className="border border-full "></div>
-          <div className="flex ">
+          <div className="gap-10 flex">
             <div className="mt-2 w-[350px]">
               <div className="border rounded-3xl bg-[#F3F4F6]">
-                <button className="border w-[50%] text-xl bg-[#0166FF] text-white rounded-3xl p-2 ">
+                <button
+                  className={` w-[50%] text-xl  rounded-3xl p-2  ${
+                    transactionData.transaction_type === "EXP" &&
+                    "bg-[#0166FF] text-white"
+                  }`}
+                  onClick={() => {
+                    changeTransactionData("transaction_type", "EXP");
+                  }}
+                >
                   Expence
                 </button>
                 <button
-                  className="
-           w-[50%]  text-xl  text-black rounded-3xl p-2 "
+                  className={`
+           w-[50%]  text-xl  text-black rounded-3xl p-2  ${
+             transactionData.transaction_type === "INC" &&
+             "bg-[#228822] text-white"
+           }`}
+                  onClick={() => {
+                    changeTransactionData("transaction_type", "INC");
+                  }}
                 >
                   Income
                 </button>
               </div>
+              <h1 className="font-medium text-[20px] mt-4">Amount</h1>
               <input
-                type="text"
-                placeholder="Amount"
-                className="input input-bordered w-full max-w-xs mt-3"
+                type="number"
+                className="bg-[#dfdfe2] border-none p-3 w-full rounded mt-3"
+                placeholder="$ 000,0"
+                value={transactionData.amount}
+                name="amount"
+                onChange={(e) => {
+                  console.log(e.target.name, e.target.value);
+                  changeTransactionData(e.target.name, e.target.value);
+                }}
               />
-              <AddCategory />
-              <div className="flex mt-6 gap-2">
-                <div className="">
-                  <p>Date</p>
-                  <input
-                    type="date"
-                    name=""
-                    id=""
-                    className="input input-bordered"
-                  />
-                </div>
-                <div className="">
-                  <p>Date</p>
-                  <input
-                    type="date"
-                    name=""
-                    id=""
-                    className="input input-bordered"
-                  />
-                </div>
+              <AddCategory
+                category={category}
+                changeTransactionData={changeTransactionData}
+              />
+              <div className="flex justify-around">
+                <label className="label">
+                  <span className="text-base label-text">Date</span>
+                </label>
+                <label className="label">
+                  <span className="text-base label-text">Date</span>
+                </label>
+              </div>
+              <div className="flex gap-2 ">
+                <input
+                  type="datetime-local"
+                  placeholder="Oct 30,2023"
+                  className="w-full input input-bordered bg-[#F9FAFB]"
+                  name="updated_at"
+                  onChange={(e) => {
+                    console.log("first", e.target.value);
+                    changeTransactionData(e.target.name, e.target.value);
+                  }}
+                />
               </div>
               <div className="flex justify-center ">
-                <button className="w-full bg-[#0166FF] p-2 text-white rounded-xl mt-3">
+                <button
+                  onClick={addRecord}
+                  className={`px-2 py-3 modal-backdrop w-full font-normal my-4 text-white rounded-full hover:cursor-pointer hover:opacity-70 ${
+                    transactionData.transaction_type === "INC"
+                      ? "bg-[#228822]"
+                      : "bg-[#0166FF]"
+                  }`}
+                >
                   Add Record
                 </button>
+                {/* {open && <CategoryForm open={open} closeForm={closeForm} />} */}
               </div>
             </div>
 
             <div className="ml-5 mt-2 w-full">
-              <p className="text-[20px]">Payee</p>
-              <select className="select select-bordered w-full max-w-xs mt-2">
-                <option disabled selected>
-                  Write here
-                </option>
-                <option>Han Solo</option>
-                <option>Greedo</option>
-              </select>
-              <p className="mt-4 text-[20px]">Note</p>
+              {" "}
+              <h1 className="mt-4 mb-2 font-medium text-[20px]">Name</h1>
               <input
                 type="text"
-                placeholder="Write here"
-                className="input input-bordered w-full max-w-xs mt-2 h-[65%]"
+                placeholder="Name"
+                className="bg-[#dfdfe2] border-none p-3 w-full rounded mt-3"
+                name="transaction_name"
+                value={transactionData.transaction_name}
+                onChange={(e) => {
+                  changeTransactionData(e.target.name, e.target.value);
+                }}
               />
+              <div>
+                <h1 className="mt-4 mb-2">Note</h1>
+                <textarea
+                  placeholder="Write a Message"
+                  cols="30"
+                  rows="10"
+                  name="description"
+                  className="border py-[14px] w-full pl-5 max-w-xs border-zinc-200 bg-[#F9FAFB] rounded"
+                  value={transactionData.description}
+                  onChange={(e) => {
+                    changeTransactionData(e.target.name, e.target.value);
+                  }}
+                ></textarea>
+              </div>
             </div>
           </div>
         </div>

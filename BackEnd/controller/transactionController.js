@@ -18,7 +18,7 @@ const createTransaction = async (req, res) => {
     console.log(req.body);
 
     const data =
-      await sql`INSERT INTO transactions(user_id, category_id, name, amount, description, transaction_type, updated_at) VALUES(${userId}, ${categoryId}, ${transaction_name}, ${amount}, ${description}, ${transaction_type}, ${updated_at}) RETURNING *`;
+      await sql`INSERT INTO transaction(user_id, category_id, name, amount, description, transaction_type, updatedat) VALUES(${userId}, ${categoryId}, ${transaction_name}, ${amount}, ${description}, ${transaction_type}, ${updated_at}) RETURNING *`;
     res.status(201).json({ message: "success", transaction: data[0] });
     // res.json({ ss: "" });
   } catch (error) {

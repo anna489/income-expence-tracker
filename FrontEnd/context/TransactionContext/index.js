@@ -25,9 +25,9 @@ const TransactionProvider = ({ children }) => {
     console.log("DATA", transactionData);
     console.log("USER", user);
     try {
-      const { data } = await axios.post("http://localhost:8006  /transactions", {
+      const { data } = await axios.post("http://localhost:8008/transaction", {
         ...transactionData,
-        userId: "06abd39d-0523-4749-b99e-28dc147ad222",
+        userId: "630362df-6a74-487d-a8bb-b7c4ebed998f",
       });
       toast.success("Гүйлгээг амжилттай нэмлээ.");
     } catch (error) {

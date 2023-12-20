@@ -11,4 +11,16 @@ const getAllCategory = async (req, res) => {
   }
 };
 
-module.exports = { getAllCategory };
+const createCategory = async (req, res) => {
+  const { name, avatarimg, color } = req.body;
+  try {
+    const data =
+      await sql`INSERT INTO category (name, avatarimg, color) VALUES(${name}, ${color}, ${avatarimg}) `;
+    res.status(200).json({ message: "success", data });
+  } catch (error) {
+    console.log("ERR", error);
+    res.status(500).json({ message: "failed" });
+  }
+};
+
+module.exports = { getAllCategory, createCategory };

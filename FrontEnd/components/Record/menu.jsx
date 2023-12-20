@@ -52,37 +52,22 @@ const Menu = () => {
             />
 
             {/* Type */}
-            <div className="mt-4">
+            <div className="mt-4 p-2">
               <h1 className="text-lg font-medium">Type</h1>
-              <div className="form-control">
-                <label className="label cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked="checked"
-                    className="checkbox h-4 w-4"
-                  />{" "}
-                  <span className="label-text">All</span>
-                </label>
+              <div className="mt-2">
+                <button className="px-2 py-1 w-full border rounded bg-[#0166FF] text-white">
+                  All
+                </button>
               </div>
-              <div className="form-control">
-                <label className="label cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked="checked"
-                    className="checkbox h-4 w-4"
-                  />{" "}
-                  <span className="label-text">Income</span>
-                </label>
+              <div className="mt-2">
+                <button className="px-2 py-1 w-full border rounded bg-[#0166FF] text-white">
+                  Income
+                </button>
               </div>
-              <div className="form-control">
-                <label className="label cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked="checked"
-                    className="checkbox h-4 w-4"
-                  />{" "}
-                  <span className="">Expence</span>
-                </label>
+              <div className="mt-2">
+                <button className="px-2 py-1 w-full border rounded bg-[#0166FF] text-white">
+                  Expence
+                </button>
               </div>
             </div>
 
@@ -101,7 +86,7 @@ const Menu = () => {
                 );
               })}
             </div>
-            <button className="flex justify-center items-center mt-3 text-lg">
+            <button className="flex  border rounded py-2  border-[#0166FF] justify-center items-center mt-3 text-lg">
               <span className="text-[#0166FF] text-xl mr-2">+</span> Add
               Category
             </button>
@@ -109,13 +94,13 @@ const Menu = () => {
             <div className="flex justify-center items-center gap-3 mt-6">
               <input
                 type="text"
-                className="border border-black w-[50%] p-3 rounded bg-[#F3F4F6]"
+                className="border border-[#0166FF] w-[50%] p-3 rounded bg-[#F3F4F6]"
                 placeholder="0"
               />
               <input
                 type="text"
                 placeholder="100"
-                className="border border-black w-[50%] p-3 rounded bg-[#F3F4F6]"
+                className="border border-[#0166FF] w-[50%] p-3 rounded bg-[#F3F4F6]"
               />
             </div>
             <input
