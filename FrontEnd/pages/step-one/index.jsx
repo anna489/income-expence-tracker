@@ -7,9 +7,6 @@ import { useEffect } from "react";
 
 const Currency = () => {
   const router = useRouter();
-  const handleBalanceClick = () => {
-    router.push("/step_two");
-  };
 
   const gotoStep = () => {
     changeStep();

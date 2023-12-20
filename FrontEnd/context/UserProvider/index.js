@@ -38,12 +38,12 @@ const UserProvider = ({ children }) => {
 
     try {
       setLoading(true);
-      const { data } = await axios.post("http://localhost:8008/auth/login", {
+      const { data } = await axios.post("http://localhost:8006/auth/login", {
         userEmail: formUserData.email,
         userPassword: formUserData.password,
       });
       console.log("DDD++++++>", data.user);
-      setUser(data.user);
+      setUser(data.user); 
       router.push("/dashboard");
     } catch (error) {
       console.log("error", error);

@@ -5,7 +5,8 @@ const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const cathRoutes = require("./routes/cathRoutes");
 const imageRoutes = require("./routes/imageRoutes");
-const transacRouter = require("./routes/transacRouter");
+const categoryRoutes = require("./routes/categoryRoutes")
+const transactionRoutes = require("./routes/transactionRoutes");
 
 const PORT = process.env.PORT;
 
@@ -18,7 +19,8 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/auth", cathRoutes);
 app.use("/api/image", imageRoutes);
-app.use("/auth", transacRouter);
+app.use("/categories/", categoryRoutes);
+app.use("/transactions/", transactionRoutes); 
 
 app.listen(PORT, () => {
   console.log(`==Server ${PORT} deer aslaa==`);

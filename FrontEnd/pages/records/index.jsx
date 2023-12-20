@@ -5,9 +5,9 @@ import DashNav from "@/components/DashNav";
 
 const Record = () => {
   return (
-    <div className="px-[100px] bg-[#F3F4F6] h-full ">
+    <div className=" bg-[#F3F4F6] h-full ">
       <DashNav />
-      <div className="flex ">
+      <div className="flex px-[100px]">
         <Menu />
         <Container />
       </div>

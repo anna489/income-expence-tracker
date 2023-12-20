@@ -26,7 +26,7 @@ export const StepProvider = ({ children }) => {
   const goToDashboard = async () => {
     try {
       const { data } = await axios.put(
-        "http://localhost:8008/users/" + user.id,
+        "http://localhost:8006/users/" + user.id,
         {
           currency_type: stepData.currency_type,
           balance: stepData.balance,
