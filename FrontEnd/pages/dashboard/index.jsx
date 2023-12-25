@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
+
+import { UserContext } from "../../context/UserProvider";
 import Doth from "@/components/Doth/DothGreen";
 import DothBlue from "@/components/Doth/DothBlue";
 import Up from "@/components/Up&Down/Up";
 import Down from "@/components/Up&Down/Down";
 import Chart from "../../components/Chart/Chart";
 import DashNav from "@/components/DashNav";
-
-import HouseCheck from "@/components/In&Out/HouseCheck";
+import AddTransaction from "../../components/AddTransaction";
+import { TransactionContext } from "../../context/TransactionContext";
 
 const Dashboard = () => {
+  const router = useRouter();
+  const { user, logout } = useContext(UserContext);
+  const { getAllTransaction, reFetch } = useContext(TransactionContext);
+
+  useEffect(() => {
+    if (!user) {
+      router.push("/login");
+    }
+  }, [user]);
+
+  if (!user) {
+    return null;
+  }
+
   return (
     <div>
       <DashNav />
@@ -86,11 +103,7 @@ const Dashboard = () => {
             <h1 className="text-xl card-title">Last Records</h1>
             <div className="border border-full"></div>
             <div>
-              <HouseCheck />
-              <div className="border border-full"></div>
-              <HouseCheck />
-              <div className="border border-full"></div>
-              <HouseCheck />
+              <AddTransaction />
             </div>
           </div>
         </div>

@@ -10,20 +10,20 @@ const AddCategory = ({ category, changeTransactionData }) => {
           <p className="text-[#94A3B8]">Find or choose category</p>
         </summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box w-52">
-          <div className="border rounded-full ">
-            {category.map((el) => {
+          <div>
+            {category.map((el) => (
               <button
                 className="w-full font-normal mb-4 flex items-center gap-3 hover:opacity-50"
-                onClick={(el) => {
-                  el.preventDefault();
-                  console.log(el.id);
-                  changeTransactionData("categoryId", el.id);
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log("CategoryId", el.id);
+                  changeTransactionData("category_id", el.id);
                 }}
               >
                 {getIcons(el.avatarimg, el.color)}
                 {el.name}
-              </button>;
-            })}
+              </button>
+            ))}
           </div>
         </ul>
       </details>

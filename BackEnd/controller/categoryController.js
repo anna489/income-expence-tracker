@@ -3,7 +3,7 @@ const { sql } = require("../config/pgDb");
 const getAllCategory = async (req, res) => {
   try {
     const categories = await sql`SELECT * FROM category`;
-
+// console.log("categories",categories)
     res.status(200).json({ message: "success", categories });
   } catch (error) {
     console.log("ERR", error);
@@ -12,10 +12,10 @@ const getAllCategory = async (req, res) => {
 };
 
 const createCategory = async (req, res) => {
-  const { name, avatarimg, color } = req.body;
+  const { name,  color, avatarimg } = req.body;
   try {
     const data =
-      await sql`INSERT INTO category (name, avatarimg, color) VALUES(${name}, ${color}, ${avatarimg}) `;
+      await sql`INSERT INTO category (name, color, avatarimg) VALUES(${name}, ${color}, ${avatarimg}) `;
     res.status(200).json({ message: "success", data });
   } catch (error) {
     console.log("ERR", error);

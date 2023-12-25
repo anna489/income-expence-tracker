@@ -5,26 +5,26 @@ import axios from "axios";
 
 const Add = () => {
   const [category, setCategory] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   const { transactionData, changeTransactionData, addTransaction } =
     useContext(TransactionContext);
 
   const addRecord = async () => {
     await addTransaction();
     console.log("CLOSE");
-    closeForm();
   };
 
   const getCategories = async () => {
     const {
       data: { categories },
-    } = await axios.get("http://localhost:8008/categories");
-    console.log("RES", categories);
+    } = await axios.get("http://localhost:8006/categories");
+    // console.log("RES", categories);
     setCategory(categories);
   };
 
   useEffect(() => {
     getCategories();
-  }, []);
+  }, [!refresh]);
 
   return (
     <div>
@@ -32,7 +32,7 @@ const Add = () => {
         id="my_modal_5"
         className="modal flex justify-center items-center "
       >
-        <div className="modal-box max-w-3xl ">
+        <div className="modal-box max-w-2xl ">
           <div className="flex justify-between items-center">
             <h3 className="font-bold text-lg">Add Record</h3>
             <form method="dialog">
@@ -83,15 +83,7 @@ const Add = () => {
                 category={category}
                 changeTransactionData={changeTransactionData}
               />
-              <div className="flex justify-around">
-                <label className="label">
-                  <span className="text-base label-text">Date</span>
-                </label>
-                <label className="label">
-                  <span className="text-base label-text">Date</span>
-                </label>
-              </div>
-              <div className="flex gap-2 ">
+              <div className="flex gap-2 mt-6">
                 <input
                   type="datetime-local"
                   placeholder="Oct 30,2023"
@@ -106,7 +98,7 @@ const Add = () => {
               <div className="flex justify-center ">
                 <button
                   onClick={addRecord}
-                  className={`px-2 py-3 modal-backdrop w-full font-normal my-4 text-white rounded-full hover:cursor-pointer hover:opacity-70 ${
+                  className={`px-2 py-3  w-full font-normal my-4 text-white rounded-full hover:cursor-pointer hover:opacity-70 ${
                     transactionData.transaction_type === "INC"
                       ? "bg-[#228822]"
                       : "bg-[#0166FF]"
@@ -114,8 +106,8 @@ const Add = () => {
                 >
                   Add Record
                 </button>
-                {/* {open && <CategoryForm open={open} closeForm={closeForm} />} */}
               </div>
+              {/* {open && <CategoryForm open={open} closeForm={closeForm} />} */}
             </div>
 
             <div className="ml-5 mt-2 w-full">
@@ -124,7 +116,7 @@ const Add = () => {
               <input
                 type="text"
                 placeholder="Name"
-                className="bg-[#dfdfe2] border-none p-3 w-full rounded mt-3"
+                className="bg-[#dfdfe2] border-none w-full p-3 rounded mt-3"
                 name="transaction_name"
                 value={transactionData.transaction_name}
                 onChange={(e) => {
@@ -138,7 +130,7 @@ const Add = () => {
                   cols="30"
                   rows="10"
                   name="description"
-                  className="border py-[14px] w-full pl-5 max-w-xs border-zinc-200 bg-[#F9FAFB] rounded"
+                  className="border py-[14px] w-full pl-5 max-w-xs border-zinc-200 bg-[#dfdfe2] rounded"
                   value={transactionData.description}
                   onChange={(e) => {
                     changeTransactionData(e.target.name, e.target.value);

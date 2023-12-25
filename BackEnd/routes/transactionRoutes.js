@@ -6,6 +6,7 @@ const {
 
 const router = Router();
 
-router.route("/").post(createTransaction).get(getAllTransaction);
+router.route("/").post(createTransaction);
+router.route("/:userId").get(getAllTransaction)
 
 module.exports = router;

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Eye from "@/components/Logo/Eye";
 import Leading from "@/components/Logo/Leading";
 import Add from "./add";
+
+import { UserContext } from "../../context/UserProvider";
 
 const Menu = () => {
   const Categorys = [
@@ -10,33 +12,16 @@ const Menu = () => {
     { name: "Housing" },
     { name: "Transportation" },
     { name: "Vehicle" },
-    { name: "Life & Entertainment" },
-    { name: "Communication" },
-    { name: "Financial expenses" },
-    { name: "Investments" },
-    { name: "Income" },
-    { name: "Others" },
   ];
+  const { user } = useContext(UserContext);
 
   return (
     <div>
-      <div className="drawer lg:drawer-open flex ">
+      <div className="lg:drawer-open flex ">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle " />
-        <div className="drawer-content flex flex-col items-center justify-center ">
-          <label
-            htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
-          >
-            Open drawer
-          </label>
-        </div>
         <div className="drawer-side">
-          <label
-            htmlFor="my-drawer-2"
-            aria-label="close sidebar"
-            className="drawer-overlay "
-          ></label>
-          <ul className="menu p-4 w-[90%] min-h-full bg-state-400 border rounded-lg mt-10 text-base-content bg-white ">
+          {/* <h1>{user.name}</h1> */}
+          <ul className="menu w-[300px] p-4 bg-state-400 border rounded-lg mt-10 text-base-content bg-white ">
             <h2 className="text-2xl font-semibold">Records</h2>
             <button
               className="btn bg-[#0166FF] text-white mt-2"
@@ -48,7 +33,7 @@ const Menu = () => {
             <input
               type="text"
               placeholder="Search"
-              className="p-1 mt-4 border rounded-lg "
+              className="p-3 mt-4 border rounded-lg bg-[#dfdfe2] "
             />
 
             {/* Type */}
@@ -86,30 +71,48 @@ const Menu = () => {
                 );
               })}
             </div>
-            <button className="flex  border rounded py-2  border-[#0166FF] justify-center items-center mt-3 text-lg">
+            <button
+              className="border rounded py-2  border-[#0166FF] mt-3 text-lg"
+              onClick={() => document.getElementById("my_modal_3").showModal()}
+            >
               <span className="text-[#0166FF] text-xl mr-2">+</span> Add
               Category
             </button>
+            <dialog id="my_modal_3" className="modal">
+              <div className="modal-box">
+                <form method="dialog">
+                  <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                    ✕
+                  </button>
+                </form>
+                <h3 className="font-bold text-lg">Add Category</h3>
+                <p className="border mt-2"></p>
+                <div className="flex gap-4 mt-4 justify-center items-center">
+                  <div className="dropdown dropdown-hover bg-blue ">
+                    <div tabIndex={0} role="button" className="btn m-1">
+                      <Eye />
+                    </div>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                      <li>
+                        <a>Item 1</a>
+                      </li>
+                      <li>
+                        <a>Item 2</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <input
+                    type="text"
+                    className="border px-4 bg-[#e0e0e0] h-[50px] text-black rounded w-full"
+                    placeholder="Name..."
+                  />
+                </div>
+              </div>
+            </dialog>
             <h1 className="text-lg font-medium mt-6">Amount Range</h1>
-            <div className="flex justify-center items-center gap-3 mt-6">
-              <input
-                type="text"
-                className="border border-[#0166FF] w-[50%] p-3 rounded bg-[#F3F4F6]"
-                placeholder="0"
-              />
-              <input
-                type="text"
-                placeholder="100"
-                className="border border-[#0166FF] w-[50%] p-3 rounded bg-[#F3F4F6]"
-              />
-            </div>
-            <input
-              type="range"
-              min={0}
-              max="100"
-              value="20"
-              className="range mt-6 "
-            />
           </ul>
         </div>
       </div>

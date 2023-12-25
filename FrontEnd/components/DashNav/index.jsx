@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useRouter } from "next/router";
 
 const DashNav = () => {
+  const router = useRouter();
+
   return (
     <div className="navbar bg-base-100 px-[100px]">
       {/* Logo */}
@@ -19,24 +22,30 @@ const DashNav = () => {
             />
           </svg>
         </a>
-        <a href="/dashboard" className="mr-4 font-semibold text-[16px]">
+        <button
+          onClick={() => router.push("/dashboard")}
+          className="mr-4 font-semibold text-[16px]"
+        >
           Dashboard
-        </a>
-        <a href="/records" className=" font-semibold">
+        </button>
+        <button
+          onClick={() => router.push("/records")}
+          className=" font-semibold"
+        >
           Record
-        </a>
+        </button>
       </div>
-      <div className="flex-none">
-        <ul className="menu menu-horizontal px-1  flex justify-center items-center">
-          <li className=" font-semibold  bg-[#0166FF]  text-white rounded-3xl ">
-            <a>+ Record</a>
-          </li>
-          <li>
-            <a href="./profile">
-              <img src={"./images/Avatar.png"} className=" " />
-            </a>
-          </li>
-        </ul>
+      <div className="flex-none gap-4 ">
+        <button
+          className=" font-semibold  bg-[#0166FF] py-2 px-4 text-white rounded-3xl "
+          onClick={() => document.getElementById("my_modal_5").showModal()}
+        >
+          + Record
+        </button>
+
+        <button>
+          <img src="./images/Avatar.png" alt="" />
+        </button>
       </div>
     </div>
   );
