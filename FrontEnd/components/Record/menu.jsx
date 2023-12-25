@@ -1,19 +1,15 @@
-import React, { useContext } from "react";
-import Eye from "@/components/Logo/Eye";
+import React, { useContext, useState } from "react";
 import Leading from "@/components/Logo/Leading";
-import Add from "./add";
-
+import Add from "./add/add";
+import CategoryIcons from "./icon/CategoryIcons";
 import { UserContext } from "../../context/UserProvider";
+import CategoryIcon from "./add/categoryIcon";
 
 const Menu = () => {
-  const Categorys = [
-    { name: "Food & Drinks" },
-    { name: "Shopping" },
-    { name: "Housing" },
-    { name: "Transportation" },
-    { name: "Vehicle" },
-  ];
-  const { user } = useContext(UserContext);
+  const Categorys = [<CategoryIcons />];
+
+  const [cat, setCat] = useState(null);
+  const [category, setCategory] = useState([]);
 
   return (
     <div>
@@ -63,8 +59,8 @@ const Menu = () => {
                 return (
                   <li>
                     <a>
-                      <Eye />
-                      {Category.name}
+                      <CategoryIcon />
+
                       <Leading />
                     </a>
                   </li>
@@ -79,7 +75,7 @@ const Menu = () => {
               Category
             </button>
             <dialog id="my_modal_3" className="modal">
-              <div className="modal-box">
+              <div className="modal-box h-[300px]">
                 <form method="dialog">
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                     ✕
@@ -88,20 +84,15 @@ const Menu = () => {
                 <h3 className="font-bold text-lg">Add Category</h3>
                 <p className="border mt-2"></p>
                 <div className="flex gap-4 mt-4 justify-center items-center">
-                  <div className="dropdown dropdown-hover bg-blue ">
+                  <div className="dropdown dropdown-hover bg-blue  ">
                     <div tabIndex={0} role="button" className="btn m-1">
-                      <Eye />
+                      <CategoryIcon />
                     </div>
                     <ul
-                      tabIndex={0}
+                      tabIndex={1}
                       className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                     >
-                      <li>
-                        <a>Item 1</a>
-                      </li>
-                      <li>
-                        <a>Item 2</a>
-                      </li>
+                      <CategoryIcons />
                     </ul>
                   </div>
                   <input

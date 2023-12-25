@@ -38,7 +38,7 @@ const UserProvider = ({ children }) => {
 
     try {
       setLoading(true);
-      const { data } = await axios.post("http://localhost:8006/auth/login", {
+      const { data } = await axios.post("http://localhost:8008/auth/login", {
         userEmail: formUserData.email,
         userPassword: formUserData.password,
       });
@@ -74,7 +74,7 @@ const UserProvider = ({ children }) => {
     }
 
     try {
-      const { data } = await axios.post("http://localhost:8006/auth/signup", {
+      const { data } = await axios.post("http://localhost:8008/auth/signup", {
         email: formUserData.email,
         password: formUserData.password,
         name: formUserData.name,

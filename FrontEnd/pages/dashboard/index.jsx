@@ -13,8 +13,7 @@ import { TransactionContext } from "../../context/TransactionContext";
 
 const Dashboard = () => {
   const router = useRouter();
-  const { user, logout } = useContext(UserContext);
-  const { getAllTransaction, reFetch } = useContext(TransactionContext);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     if (!user) {
@@ -31,7 +30,7 @@ const Dashboard = () => {
       <DashNav />
       <div className="px-[100px] bg-[#F3F4F6] h-full">
         <div className="flex-wrap flex justify-center gap-10  ">
-          <div className="card w-[30%] bg-[#3364d7] h-[300px] shadow-xl   mt-10">
+          <div className="card w-[32%] bg-[#3364d7] h-[300px] shadow-xl   mt-10">
             <img className="w-full h-full absolute" src="/images/Noise.png" />
             <div className="flex gap-2 p-4">
               <img className="bg-white rounded-full" src="/images/Vector.png" />
@@ -65,7 +64,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="card w-[30%] h-[300px] bg-base-100 shadow-xl mt-10">
+          <div className="card w-[32%] h-[300px] bg-base-100 shadow-xl mt-10">
             <div className="card-body  ">
               <h2 className="card-title">
                 <Doth />
@@ -80,7 +79,7 @@ const Dashboard = () => {
               </h2>
             </div>
           </div>
-          <div className="card w-[30%] h-[300px] bg-base-100 shadow-xl mt-10  ">
+          <div className="card w-[31%] h-[300px] bg-base-100 shadow-xl mt-10  ">
             <div className="card-body  ">
               <h2 className="card-title">
                 <DothBlue />

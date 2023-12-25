@@ -7,7 +7,7 @@ const Container = () => {
   return (
     <div className=" 2 item-center w-[90%] ml-10 justify-between">
       <div className="mt-10 flex justify-between">
-        <div className="flex justify- items-center gap-5 ">
+        {/* <div className="flex justify- items-center gap-5 ">
           <button className="bg-white h-8 w-8 items-center flex justify-center border rounded">
             <Right />
           </button>
@@ -18,8 +18,8 @@ const Container = () => {
           >
             <Left />
           </button>
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <div className="navbar ">
             <div className="flex-none">
               <ul className="menu menu-horizontal px-1 ">
@@ -33,9 +33,9 @@ const Container = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
-      <div className="border p-2 rounded-lg bg-white flex  justify-between">
+      {/* <div className="border p-2 rounded-lg bg-white flex  justify-between">
         <div className="flex gap-4">
           <input type="checkbox" className="checkbox " disabled />
           <p>Select All</p>
@@ -43,7 +43,7 @@ const Container = () => {
         <div>
           <p>-35'000</p>
         </div>
-      </div>
+      </div> */}
       <div className="mt-6">
         <h2 className="text-lg font-medium">Records</h2>
         <AddTransaction />

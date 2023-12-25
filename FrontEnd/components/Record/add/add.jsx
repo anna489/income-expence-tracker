@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import AddCategory from "./addCategory";
-import { TransactionContext } from "../../context/TransactionContext";
+import { TransactionContext } from "../../../context/TransactionContext";
 import axios from "axios";
 
 const Add = () => {
@@ -17,7 +17,7 @@ const Add = () => {
   const getCategories = async () => {
     const {
       data: { categories },
-    } = await axios.get("http://localhost:8006/categories");
+    } = await axios.get("http://localhost:8008/categories");
     // console.log("RES", categories);
     setCategory(categories);
   };
@@ -32,7 +32,7 @@ const Add = () => {
         id="my_modal_5"
         className="modal flex justify-center items-center "
       >
-        <div className="modal-box max-w-2xl ">
+        <div className="modal-box max-w-xl ">
           <div className="flex justify-between items-center">
             <h3 className="font-bold text-lg">Add Record</h3>
             <form method="dialog">
@@ -42,7 +42,7 @@ const Add = () => {
           <div className="border border-full "></div>
           <div className="gap-10 flex">
             <div className="mt-2 w-[350px]">
-              <div className="border rounded-3xl bg-[#F3F4F6]">
+              <div className="rounded-3xl bg-[#F3F4F6]">
                 <button
                   className={` w-[50%] text-xl  rounded-3xl p-2  ${
                     transactionData.transaction_type === "EXP" &&
@@ -70,7 +70,7 @@ const Add = () => {
               <h1 className="font-medium text-[20px] mt-4">Amount</h1>
               <input
                 type="number"
-                className="bg-[#dfdfe2] border-none p-3 w-full rounded mt-3"
+                className="bg-[#F3F4F6] border-none p-3 w-full rounded mt-3"
                 placeholder="$ 000,0"
                 value={transactionData.amount}
                 name="amount"
@@ -87,7 +87,7 @@ const Add = () => {
                 <input
                   type="datetime-local"
                   placeholder="Oct 30,2023"
-                  className="w-full input input-bordered bg-[#F9FAFB]"
+                  className="w-full input input-bordered bg-[#F3F4F6]"
                   name="updated_at"
                   onChange={(e) => {
                     console.log("first", e.target.value);
@@ -116,7 +116,7 @@ const Add = () => {
               <input
                 type="text"
                 placeholder="Name"
-                className="bg-[#dfdfe2] border-none w-full p-3 rounded mt-3"
+                className="bg-[#F3F4F6] border-none w-full p-3 rounded mt-3"
                 name="transaction_name"
                 value={transactionData.transaction_name}
                 onChange={(e) => {
@@ -130,7 +130,7 @@ const Add = () => {
                   cols="30"
                   rows="10"
                   name="description"
-                  className="border py-[14px] w-full pl-5 max-w-xs border-zinc-200 bg-[#dfdfe2] rounded"
+                  className="border py-[14px] w-full pl-5 max-w-xs border-zinc-200 bg-[#F3F4F6] rounded"
                   value={transactionData.description}
                   onChange={(e) => {
                     changeTransactionData(e.target.name, e.target.value);
