@@ -17,7 +17,7 @@ const Add = () => {
   const getCategories = async () => {
     const {
       data: { categories },
-    } = await axios.get("http://localhost:8008/categories");
+    } = await axios.get("http://localhost:8006/categories");
     // console.log("RES", categories);
     setCategory(categories);
   };

@@ -19,9 +19,8 @@ const TransactionProvider = ({ children }) => {
     userId: "",
   });
 
-  const changeTransactionData = (key, value) => {
-    setTransactionData({ ...transactionData, [key]: value });
-    // transactionData.amount <=> transactionData['amount'] <==> key="amount" transaction[key] : ''
+    const changeTransactionData = (key, value) => {
+      setTransactionData({ ...transactionData, [key]: value });
   };
 
   const addTransaction = async () => {
@@ -29,7 +28,7 @@ const TransactionProvider = ({ children }) => {
     console.log("USER", user);
     transactionData.userId = user.id;
     try {
-      const { data } = await axios.post("http://localhost:8008/transactions/", {
+      const { data } = await axios.post("http://localhost:8006/transactions/", {
         ...transactionData,
       });
       console.log("DATA", data);
@@ -44,7 +43,7 @@ const TransactionProvider = ({ children }) => {
     try {
       const {
         data: { transactions },
-      } = await axios.get("http://localhost:8008/transactions/" + user.id);
+      } = await axios.get("http://localhost:8006/transactions/" + user.id);
       console.log("get DATA", transactions);
       setReFetch(reFetch);
       setTransactions(transactions);

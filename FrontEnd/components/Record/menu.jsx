@@ -4,12 +4,10 @@ import Add from "./add/add";
 import CategoryIcons from "./icon/CategoryIcons";
 import { UserContext } from "../../context/UserProvider";
 import CategoryIcon from "./add/categoryIcon";
+// import AddCategory from "../AddCategory";
 
 const Menu = () => {
   const Categorys = [<CategoryIcons />];
-
-  const [cat, setCat] = useState(null);
-  const [category, setCategory] = useState([]);
 
   return (
     <div>
@@ -41,7 +39,10 @@ const Menu = () => {
                 </button>
               </div>
               <div className="mt-2">
-                <button className="px-2 py-1 w-full border rounded bg-[#0166FF] text-white">
+                <button
+                  className={`px-2 py-1 w-full border rounded bg-[#0166FF] text-white
+                `}
+                >
                   Income
                 </button>
               </div>
@@ -60,7 +61,7 @@ const Menu = () => {
                   <li>
                     <a>
                       <CategoryIcon />
-
+                      {/* <AddCategory /> */}
                       <Leading />
                     </a>
                   </li>

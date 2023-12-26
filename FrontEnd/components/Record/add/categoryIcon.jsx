@@ -10,7 +10,4 @@ const CategoryIcon = ({ name, color }) => {
   );
 };
 
-// const Add = () => {
-//   return <span></span>;
-// };
 export default CategoryIcon;
