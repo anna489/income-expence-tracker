@@ -1,17 +1,19 @@
-import { React, useContext, createContext, useState } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import { UserContext } from "../UserProvider";
-export const CategoryContext = createContext(null);
+import axios from "axios";
+
+export const CategoryContext = createContext("CatCTX");
 
 const CategoryProvider = ({ children }) => {
   const { user } = useContext(UserContext);
   const [refresh, setRefresh] = useState(false);
-  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState([]);
   const [categoryData, setCategoryData] = useState({
     name: "",
     avatar_img: "",
     color: "",
   });
-  console.log("category data", categories);
+
   const changeCategoryData = (key, value) => {
     setCategoryData({ ...categoryData, [key]: value });
   };
@@ -33,25 +35,26 @@ const CategoryProvider = ({ children }) => {
   };
 
   const getAllCategory = async () => {
-    try {
-      const {
-        data: { categories },
-      } = await axios.get("http://localhost:8006/categories/" + user.id);
-      console.log("get DATA", categories);
-      setRefresh(!refresh);
-      setCategories(categories);
-    } catch (error) {
-      toast.error(`${error.message}`);
-    }
+    const {
+      data: { categories },
+    } = await axios.get("http://localhost:8006/categories");
+    // console.log("RES", categories);
+    setCategory(categories);
   };
+
+  useEffect(() => {
+    getAllCategory();
+  }, [refresh]);
+
+  console.log("category: ", category);
 
   return (
     <CategoryContext.Provider
-      values={{
+      value={{
         changeCategoryData,
         addCategory,
         getAllCategory,
-        categories,
+        category,
         refresh,
       }}
     >

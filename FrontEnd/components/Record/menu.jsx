@@ -1,20 +1,15 @@
 import React, { useContext, useState } from "react";
-import Leading from "@/components/Logo/Leading";
 import Add from "./add/add";
-import CategoryIcons from "./icon/CategoryIcons";
-import { UserContext } from "../../context/UserProvider";
 import CategoryIcon from "./add/categoryIcon";
-// import AddCategory from "../AddCategory";
+import CategoryIcons from "./icon/CategoryIcons";
+import MenuCategory from "../MenuCategory";
 
 const Menu = () => {
-  const Categorys = [<CategoryIcons />];
-
   return (
     <div>
       <div className="lg:drawer-open flex ">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle " />
         <div className="drawer-side">
-          {/* <h1>{user.name}</h1> */}
           <ul className="menu w-[300px] p-4 bg-state-400 border rounded-lg mt-10 text-base-content bg-white ">
             <h2 className="text-2xl font-semibold">Records</h2>
             <button
@@ -55,19 +50,15 @@ const Menu = () => {
 
             {/* Sidebar content here */}
             <div>
-              <h1 className="text-lg font-medium mt-6">Category</h1>
-              {Categorys.map((Category) => {
-                return (
-                  <li>
-                    <a>
-                      <CategoryIcon />
-                      {/* <AddCategory /> */}
-                      <Leading />
-                    </a>
-                  </li>
-                );
-              })}
+              <div className="flex justify-between items-center mt-6">
+                <h1 className="text-lg font-medium ">Category</h1>
+                <button className="text-base-400">close</button>
+              </div>
+              <button className=" p-3 items-center w-full">
+                <MenuCategory />
+              </button>
             </div>
+
             <button
               className="border rounded py-2  border-[#0166FF] mt-3 text-lg"
               onClick={() => document.getElementById("my_modal_3").showModal()}
@@ -75,7 +66,8 @@ const Menu = () => {
               <span className="text-[#0166FF] text-xl mr-2">+</span> Add
               Category
             </button>
-            <dialog id="my_modal_3" className="modal">
+
+            <dialog id="my_modal_3" className="modal z-0">
               <div className="modal-box h-[300px]">
                 <form method="dialog">
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -85,12 +77,12 @@ const Menu = () => {
                 <h3 className="font-bold text-lg">Add Category</h3>
                 <p className="border mt-2"></p>
                 <div className="flex gap-4 mt-4 justify-center items-center">
-                  <div className="dropdown dropdown-hover bg-blue  ">
+                  <div className="dropdown bg-blue  ">
                     <div tabIndex={0} role="button" className="btn m-1">
                       <CategoryIcon />
                     </div>
                     <ul
-                      tabIndex={1}
+                      tabIndex={0}
                       className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                     >
                       <CategoryIcons />

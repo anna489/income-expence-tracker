@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import CategoryIcons from "./CategoryIcons";
-import { DashArrow } from "@/components/iconsvg";
+// import { DashArrow } from "@/components/iconsvg";
 import { MdHomeFilled } from "react-icons/md";
 
 const AddIcon = () => {
@@ -16,7 +16,7 @@ const AddIcon = () => {
         <summary className="m-1 btn">
           <div className="flex items-center gap-7">
             <span> {colored} </span>
-            <DashArrow size={15} />
+            {/* <DashArrow size={15} /> */}
           </div>
         </summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-96">

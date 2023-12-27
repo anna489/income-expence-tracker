@@ -1,19 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import AddCategory from "./addCategory";
 import { TransactionContext } from "../../../context/TransactionContext";
-import axios from "axios";
 
 const Add = () => {
-  const [category, setCategory] = useState([]);
-  const [refresh, setRefresh] = useState(false);
   const { transactionData, changeTransactionData, addTransaction } =
     useContext(TransactionContext);
-
+  const [category, setCategory] = useState([]);
   const addRecord = async () => {
     await addTransaction();
     console.log("CLOSE");
   };
-
   const getCategories = async () => {
     const {
       data: { categories },
@@ -21,11 +17,6 @@ const Add = () => {
     // console.log("RES", categories);
     setCategory(categories);
   };
-
-  useEffect(() => {
-    getCategories();
-  }, [!refresh]);
-
   return (
     <div>
       <dialog

@@ -37,7 +37,7 @@ import { RiImageFill } from "react-icons/ri";
 const CategoryIcons = ({ IsColor, colored, setIsColor, setColored }) => {
   return (
     <div>
-      <div className="grid grid-cols-6 w-full border-b-2  ">
+      <div className="grid grid-cols-7 w-full border-b-2  ">
         <li className="inline-block">
           <span>
             <MdHomeFilled
@@ -94,6 +94,14 @@ const CategoryIcons = ({ IsColor, colored, setIsColor, setColored }) => {
             />
           </span>
         </li>
+        <li>
+          <span>
+            <button
+              className=" w-9 h-9 rounded-full bg-[#0166ff]"
+              onClick={() => setIsColor("#0166ff")}
+            ></button>
+          </span>
+        </li>
         <li className="inline-block">
           <span>
             <RiImageFill
@@ -103,6 +111,7 @@ const CategoryIcons = ({ IsColor, colored, setIsColor, setColored }) => {
             />
           </span>
         </li>
+
         <li className="inline-block">
           <a>
             <FaMicrophone size={30} color={IsColor} />
@@ -126,6 +135,14 @@ const CategoryIcons = ({ IsColor, colored, setIsColor, setColored }) => {
         <li className="inline-block ">
           <span>
             <FaTaxi size={30} color={IsColor} />
+          </span>
+        </li>
+        <li>
+          <span>
+            <button
+              className=" w-9 h-9 rounded-full bg-[#01B3FF]"
+              onClick={() => setIsColor("#01B3FF")}
+            ></button>
           </span>
         </li>
         <li className="inline-block">
@@ -158,6 +175,14 @@ const CategoryIcons = ({ IsColor, colored, setIsColor, setColored }) => {
             <FaRoad size={30} color={IsColor} />
           </span>
         </li>
+        <li>
+          <span>
+            <button
+              className=" w-9 h-9 rounded-full bg-[#41CC00]"
+              onClick={() => setIsColor("#41CC00")}
+            ></button>
+          </span>
+        </li>
         <li className="inline-block">
           <span>
             <MdHourglassTop size={30} color={IsColor} />
@@ -187,6 +212,14 @@ const CategoryIcons = ({ IsColor, colored, setIsColor, setColored }) => {
           <a>
             <BiPencil size={30} color={IsColor} />
           </a>
+        </li>
+        <li>
+          <span>
+            <button
+              className=" w-9 h-9 rounded-full bg-[#F9D100]"
+              onClick={() => setIsColor("#F9D100")}
+            ></button>
+          </span>
         </li>
         <li className="inline-block">
           <a>
@@ -218,27 +251,34 @@ const CategoryIcons = ({ IsColor, colored, setIsColor, setColored }) => {
             <PiLadderFill size={30} color={IsColor} />
           </a>
         </li>
+        <li>
+          <span>
+            <button
+              className=" w-9 h-9 rounded-full bg-[#ff7b01]"
+              onClick={() => setIsColor("#ff7b01")}
+            ></button>
+          </span>
+        </li>
       </div>
-
       <ul className="flex justify-center py-6 gap-4 ">
         <button
-          className=" w-9 h-9 rounded-full bg-[#0166ff]"
+          className=" w-9 h-9 rounded-full bg-[#17202A]"
           onClick={() => setIsColor("#0166ff")}
         ></button>
         <button
-          className=" w-9 h-9 rounded-full bg-[#01B3FF]"
+          className=" w-9 h-9 rounded-full bg-[#374889]"
           onClick={() => setIsColor("#01B3FF")}
         ></button>
         <button
-          className=" w-9 h-9 rounded-full bg-[#41CC00]"
+          className=" w-9 h-9 rounded-full bg-[#66ccff]"
           onClick={() => setIsColor("#41CC00")}
         ></button>
         <button
-          className=" w-9 h-9 rounded-full bg-[#F9D100]"
+          className=" w-9 h-9 rounded-full  bg-[#ff66cc]"
           onClick={() => setIsColor("#F9D100")}
         ></button>
         <button
-          className=" w-9 h-9 rounded-full bg-[#ff7b01]"
+          className=" w-9 h-9 rounded-full bg-[#cc33ff]"
           onClick={() => setIsColor("#ff7b01")}
         ></button>
         <button
