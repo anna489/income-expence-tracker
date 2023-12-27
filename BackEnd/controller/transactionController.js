@@ -1,18 +1,18 @@
 const { sql } = require("../config/pgDb");
 
 const getAllTransaction = async (req, res) => {
-  const {userId} = req.params
-  console.log("GET userid",userId)
-  try{
-    const transactions = await sql`SELECT tr.name, tr.amount, tr.createdat,tr.id, tr.transaction_type, ct.avatarimg, ct.color FROM transaction tr INNER JOIN category ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} ORDER BY createdat DESC `;
-    console.log("gettransaction", transactions)
+  const { userId } = req.params;
+  console.log("GET userid", userId);
+  try {
+    const transactions =
+      await sql`SELECT tr.name, tr.amount, tr.createdat,tr.id, tr.transaction_type, ct.avatarimg, ct.color FROM transaction tr INNER JOIN category ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} ORDER BY createdat DESC `;
+    console.log("gettransaction", transactions);
     res.status(200).json({ message: "success", transactions });
   } catch (error) {
     console.log("ERR", error);
     res.status(500).json({ message: "failed" });
   }
-  }
-
+};
 
 const createTransaction = async (req, res) => {
   try {
@@ -30,13 +30,39 @@ const createTransaction = async (req, res) => {
 
     const data =
       await sql`INSERT INTO transaction(user_id, category_id, name, amount, description, transaction_type) VALUES(${userId}, ${category_id}, ${transaction_name}, ${amount}, ${description}, ${transaction_type})`;
-      console.log("BACKaDDtRAdATA",data)
+    console.log("BACKaDDtRAdATA", data);
     res.status(201).json({ message: "success", transaction: data[0] });
-   
   } catch (error) {
     console.log("ERR", error);
     res.status(500).json({ message: "failed" });
   }
 };
 
-module.exports = { createTransaction, getAllTransaction };
+const getTotalIncomeExpense = async (req, res) => {
+  try {
+    console.log("TOTAL");
+    const data =
+      await sql`SELECT transaction_type , SUM(amount) as total FROM transaction GROUP BY transaction_type`;
+    console.log("data", data);
+
+    const [inc] = data.filter((el) => el.transaction_type === "INC");
+    const [exp] = data.filter((el) => el.transaction_type === "EXP");
+    console.log("inc", inc);
+    console.log("exp", exp);
+
+    res.status(201).json({
+      message: "success",
+      totalIncome: inc.total,
+      totalExpense: exp.total,
+    });
+  } catch (error) {
+    console.log("ERR", error);
+    res.status(500).json({ message: `failed because of ${error}` });
+  }
+};
+
+module.exports = {
+  createTransaction,
+  getAllTransaction,
+  getTotalIncomeExpense,
+};
