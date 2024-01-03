@@ -10,6 +10,7 @@ const Add = () => {
     await addTransaction();
     console.log("CLOSE");
   };
+
   const getCategories = async () => {
     const {
       data: { categories },
@@ -17,6 +18,7 @@ const Add = () => {
     // console.log("RES", categories);
     setCategory(categories);
   };
+
   return (
     <div>
       <dialog
@@ -102,7 +104,6 @@ const Add = () => {
             </div>
 
             <div className="ml-5 mt-2 w-full">
-              {" "}
               <h1 className="mt-4 mb-2 font-medium text-[20px]">Name</h1>
               <input
                 type="text"

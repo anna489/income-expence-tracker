@@ -52,7 +52,7 @@ const Menu = () => {
             <div>
               <div className="flex justify-between items-center mt-6">
                 <h1 className="text-lg font-medium ">Category</h1>
-                <button className="text-base-400">close</button>
+                <button className="text-base-400">clear</button>
               </div>
               <button className=" p-3 items-center w-full">
                 <MenuCategory />
@@ -67,8 +67,8 @@ const Menu = () => {
               Category
             </button>
 
-            <dialog id="my_modal_3" className="modal z-0">
-              <div className="modal-box h-[300px]">
+            <dialog id="my_modal_3" className="modal z-0 ">
+              <div className="modal-box  ">
                 <form method="dialog">
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                     ✕
@@ -77,22 +77,31 @@ const Menu = () => {
                 <h3 className="font-bold text-lg">Add Category</h3>
                 <p className="border mt-2"></p>
                 <div className="flex gap-4 mt-4 justify-center items-center">
-                  <div className="dropdown bg-blue  ">
-                    <div tabIndex={0} role="button" className="btn m-1">
+                  <div className="dropdown bg-blue ">
+                    <div
+                      tabIndex={1}
+                      role="button"
+                      className="btn m-3 border bg-base-300  "
+                    >
                       <CategoryIcon />
                     </div>
                     <ul
                       tabIndex={0}
-                      className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                      className="dropdown-content z-[1] mt-2 menu p-2 shadow bg-base-200  border rounded-box w-[400px]"
                     >
                       <CategoryIcons />
                     </ul>
                   </div>
                   <input
                     type="text"
-                    className="border px-4 bg-[#e0e0e0] h-[50px] text-black rounded w-full"
+                    className="border px-4 bg-base-300 h-[50px] text-black rounded w-full"
                     placeholder="Name..."
                   />
+                </div>
+                <div className="flex justify-center items-center mt-10">
+                  <button className="bg-[#0166FF] text-white rounded-lg border p-4 w-full font-bol text-[20px] ">
+                    Add Category
+                  </button>
                 </div>
               </div>
             </dialog>
