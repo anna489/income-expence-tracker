@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { TransactionContext } from "../../context/TransactionContext";
 import { getIcons } from "../../utils";
+import { dayFormat } from "../../utils";
 
 const AddTransaction = () => {
   const { transactions } = useContext(TransactionContext);
@@ -16,7 +17,9 @@ const AddTransaction = () => {
               </div>
               <div className=" justify-start px-5">
                 <h1 className="text-[20px]">{transaction.name}</h1>
-                <p className="text-[10px]">{transaction.createdat}</p>
+                <p className="text-[10px]">
+                  {dayFormat(transaction.updatedat)}
+                </p>
               </div>
             </div>
             <div className="flex items-center">

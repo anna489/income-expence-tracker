@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Chart from "chart.js/auto";
 
-export default function PieChart() {
+export default function PieChart({ pieChartData }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
@@ -14,15 +14,29 @@ export default function PieChart() {
     chartInstance.current = new Chart(myChartRef, {
       type: "doughnut",
       data: {
+        labels: pieChartData.labels,
         datasets: [
           {
-            data: [20, 20, 20, 20, 20],
+            label: "",
+            data: pieChartData.data,
+            borderWidth: 2,
             backgroundColor: [
-              "rgb(255, 99, 132)",
-              "rgb(54, 162, 235)",
-              "rgb(255, 205, 86)",
-              "rgb(255, 118, 20)",
-              "rgb(54, 162, 180)",
+              "#A804AB",
+              "#FB8A22",
+              "#0166FF",
+              "#EAB308",
+
+              "#6F6CF3",
+              "#FF4545",
+            ],
+            hoverBackgroundColor: [
+              "#A804AB",
+              "#FB8A22",
+              "#0166FF",
+              "#EAB308",
+
+              "#6F6CF3",
+              "#FF4545",
             ],
           },
         ],
@@ -35,8 +49,8 @@ export default function PieChart() {
     };
   }, []);
   return (
-    <div className="w-[350px] h-[300px] justify-center flex items-center">
-      <canvas ref={chartRef} style={{ width: "300px", height: "100px" }} />
+    <div className="justify-center flex items-center">
+      <canvas ref={chartRef} style={{ width: "400px", height: "200px" }} />
     </div>
   );
 }

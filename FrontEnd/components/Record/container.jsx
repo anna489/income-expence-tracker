@@ -5,8 +5,8 @@ import AddTransaction from "../AddTransaction";
 
 const Container = () => {
   return (
-    <div className=" 2 item-center w-[90%] ml-10 justify-between">
-      <div className="mt-10 flex justify-between">
+    <div className="item-center w-[90%] ml-10 justify-between">
+      <div className="mt-4 flex justify-between">
         {/* <div className="flex justify- items-center gap-5 ">
           <button className="bg-white h-8 w-8 items-center flex justify-center border rounded">
             <Right />

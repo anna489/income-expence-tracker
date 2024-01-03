@@ -1,6 +1,7 @@
 import React from "react";
 import DothBlue from "@/components/Doth/DothBlue";
 import Down from "@/components/Up&Down/Down";
+import { thousandify } from "../../utils";
 
 const Expence = ({ totalExpence }) => {
   return (
@@ -13,11 +14,11 @@ const Expence = ({ totalExpence }) => {
       <div>
         {totalExpence > 0 && (
           <span className="font-medium lg:text-4xl md:text-2xl text-xl">
-            {totalExpence}₮{console.log(totalExpence)}
+            {thousandify(totalExpence)}₮{console.log(totalExpence)}
           </span>
         )}
       </div>
-      <p className="text-[#64748B]">Your Income Amount</p>
+      <p className="text-[#64748B]">Your Expence Amount</p>
       <h2 className="flex ">
         <Down />
         32% from last month

@@ -5,6 +5,7 @@ import { PiForkKnifeFill } from "react-icons/pi";
 import { PiWineFill } from "react-icons/pi";
 import { FaTshirt } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
+import moment from "moment";
 
 export const getIcons = (iconname = "eye", iconcolor = " iconcolor ") => {
   const icons = {
@@ -17,4 +18,13 @@ export const getIcons = (iconname = "eye", iconcolor = " iconcolor ") => {
     eye: <FaEye size={20} color={iconcolor} />,
   };
   return icons[iconname];
+};
+
+export const dayFormat = (day) => {
+  return moment(day).format("MMM Do YY");
+};
+
+export const thousandify = (num) => {
+  console.log(num);
+  return num.toLocaleString(undefined, { maximumFractionDigits: 2 });
 };

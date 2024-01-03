@@ -29,20 +29,20 @@ const Menu = () => {
             <div className="mt-4 p-2">
               <h1 className="text-lg font-medium">Type</h1>
               <div className="mt-2">
-                <button className="px-2 py-1 w-full border rounded bg-[#0166FF] text-white">
+                <button className="px-2 py-1 w-full border rounded bg-[#0166FF] text-white hover:bg-[#c1c1c3]">
                   All
                 </button>
               </div>
               <div className="mt-2">
                 <button
-                  className={`px-2 py-1 w-full border rounded bg-[#0166FF] text-white
+                  className={`px-2 py-1 w-full border rounded bg-[#0166FF] text-white hover:bg-[#c1c1c3]
                 `}
                 >
                   Income
                 </button>
               </div>
               <div className="mt-2">
-                <button className="px-2 py-1 w-full border rounded bg-[#0166FF] text-white">
+                <button className="px-2 py-1 w-full border rounded bg-[#0166FF] text-white hover:bg-[#c1c1c3]">
                   Expence
                 </button>
               </div>

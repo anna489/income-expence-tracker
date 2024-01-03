@@ -30,7 +30,7 @@ const DashNav = () => {
         </button>
         <button
           onClick={() => router.push("/records")}
-          className=" font-semibold"
+          className="font-semibold"
         >
           Record
         </button>
@@ -44,7 +44,7 @@ const DashNav = () => {
         </button>
 
         <button>
-          <img src="./images/Avatar.png" alt="" />
+          <img src="./images/Avatar.png" />
         </button>
       </div>
     </div>

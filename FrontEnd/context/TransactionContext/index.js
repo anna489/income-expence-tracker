@@ -3,6 +3,7 @@ import { UserContext } from "../UserProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
 import myAxios from "@/utils/axios";
+import PieChart from "../../components/Chart/Piechart";
 
 export const TransactionContext = createContext(null);
 
@@ -19,6 +20,8 @@ const TransactionProvider = ({ children }) => {
     updated_at: "",
     userId: "",
   });
+  const [barChartData, setBarChartData] = useState(null);
+  const [pieChartData, setPieChartData] = useState(null);
 
   const changeTransactionData = (key, value) => {
     setTransactionData({ ...transactionData, [key]: value });
@@ -70,9 +73,25 @@ const TransactionProvider = ({ children }) => {
     }
   };
 
+  const getChartData = async () => {
+    console.log("GET-CHART-DATA");
+    try {
+      const {
+        data: { barChart, pieChart },
+      } = await myAxios.get(
+        "/transactions/chartData/bea4844a-f3b8-4017-bec9-2cfa6390242d"
+      );
+      console.log("BBAA", barChart);
+      setBarChartData(barChart);
+      setPieChartData(pieChart);
+    } catch (error) {
+      console.log("CHARTERR", error);
+    }
+  };
+
   useEffect(() => {
-    // console.log("TCT");
     getTransactions();
+    getChartData();
   }, [reFetch]);
 
   return (
@@ -83,6 +102,8 @@ const TransactionProvider = ({ children }) => {
         addTransaction,
         transactions,
         getAllTransaction,
+        barChartData,
+        pieChartData,
         reFetch,
       }}
     >
