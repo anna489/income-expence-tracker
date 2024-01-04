@@ -9,7 +9,8 @@ export default function Home() {
 
   return (
     <div>
-      <Dashboard />
+      hello
+      {/* <Dashboard /> */}
     </div>
   );
 }
