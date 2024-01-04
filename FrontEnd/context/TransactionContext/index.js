@@ -62,7 +62,7 @@ const TransactionProvider = ({ children }) => {
       const {
         data: { transactions },
       } = await myAxios.get(
-        "/transactions/bea4844a-f3b8-4017-bec9-2cfa6390242d"
+        "/transactions/" +user.id
       );
       console.log("TRA");
       // toast.success("Гүйлгээнүүдийг амжилттай татлаа.");
@@ -79,7 +79,7 @@ const TransactionProvider = ({ children }) => {
       const {
         data: { barChart, pieChart },
       } = await myAxios.get(
-        "/transactions/chartData/bea4844a-f3b8-4017-bec9-2cfa6390242d"
+        "/transactions/chartData" + user.id 
       );
       console.log("BBAA", barChart);
       setBarChartData(barChart);

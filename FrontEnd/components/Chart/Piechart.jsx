@@ -14,11 +14,11 @@ export default function PieChart({ pieChartData }) {
     chartInstance.current = new Chart(myChartRef, {
       type: "doughnut",
       data: {
-        labels: pieChartData.labels,
+        labels: pieChartData?.labels,
         datasets: [
           {
             label: "",
-            data: pieChartData.data,
+            data: pieChartData?.data,
             borderWidth: 2,
             backgroundColor: [
               "#A804AB",
@@ -49,7 +49,7 @@ export default function PieChart({ pieChartData }) {
     };
   }, []);
   return (
-    <div className="justify-center flex items-center">
+    <div className="justify-center flex items-center skeleton">
       <canvas ref={chartRef} style={{ width: "400px", height: "200px" }} />
     </div>
   );

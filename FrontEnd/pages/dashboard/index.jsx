@@ -12,6 +12,7 @@ import myAxios from "@/utils/axios";
 const Dashboard = () => {
   const router = useRouter();
   const { user } = useContext(UserContext);
+  const [reFetch, setReFetch] = useState(false);
 
   useEffect(() => {
     if (!user) {
@@ -37,7 +38,7 @@ const Dashboard = () => {
   useEffect(() => {
     console.log("EE");
     getTotalIncExp();
-  }, []);
+  }, [reFetch]);
 
   return (
     <div>

@@ -43,7 +43,7 @@ const DashNav = () => {
           + Record
         </button>
 
-        <button>
+        <button onClick={() => router.push("/profile")}>
           <img src="./images/Avatar.png" />
         </button>
       </div>
