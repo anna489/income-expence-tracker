@@ -22,6 +22,10 @@ app.use("/api/image", imageRoutes);
 app.use("/", categoryRoutes);
 app.use("/transactions/", transactionRoutes);
 
+app.get("/",(req,res)=>{
+res.send("Welcome API Server");
+});
+
 app.listen(PORT, () => {
   console.log(`==Server ${PORT} deer aslaa==`);
 });
