@@ -1,7 +1,7 @@
 
-import { useContext, useEffect } from "react";
-import Dashboard from "./dashboard";
-import { TransactionContext } from "../context/TransactionContext";
+// import { useContext, useEffect } from "react";
+// import Dashboard from "./dashboard";
+// import { TransactionContext } from "../context/TransactionContext";
 
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div>
-      hello
+      <h1>Wwelcome</h1>
       {/* <Dashboard /> */}
     </div>
   );
