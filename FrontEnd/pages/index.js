@@ -8,12 +8,13 @@ import Income from "../components/Income";
 import Expence from "../components/Expence";
 import CashCard from "../components/CashCard";
 import myAxios from "../utils/axios";
+import { TransactionContext } from "../context/TransactionContext";
 
 export default function Home() {
   const router = useRouter();
   const { user } = useContext(UserContext);
   const [reFetch, setReFetch] = useState(false);
-
+  const { transactions } = useContext(TransactionContext);
   useEffect(() => {
     if (!user) {
       router.push("/login");
@@ -30,7 +31,7 @@ export default function Home() {
     console.log("START");
     const {
       data: { totalIncome, totalExpense },
-    } = await myAxios.get("/transactions/total");
+    } = await myAxios.get("/transactions/total" + user.id);
     setTotals({ ...totals, totalIncome, totalExpense });
     console.log("END");
   };
@@ -61,7 +62,7 @@ export default function Home() {
             <h1 className="text-xl card-title">Last Records</h1>
             <div className="border border-full"></div>
             <div>
-              <AddTransaction />
+              <AddTransaction transactions={transactions} />
             </div>
           </div>
         </div>

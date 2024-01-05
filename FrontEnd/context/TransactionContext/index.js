@@ -61,9 +61,7 @@ const TransactionProvider = ({ children }) => {
     try {
       const {
         data: { transactions },
-      } = await myAxios.get(
-        "/transactions/" +user.id
-      );
+      } = await myAxios.get("/transactions/" + user.id);
       console.log("TRA");
       // toast.success("Гүйлгээнүүдийг амжилттай татлаа.");
       setTransactions(transactions);
@@ -78,9 +76,7 @@ const TransactionProvider = ({ children }) => {
     try {
       const {
         data: { barChart, pieChart },
-      } = await myAxios.get(
-        "/transactions/chartData" + user.id 
-      );
+      } = await myAxios.get("/transactions/chartData" + user.id);
       console.log("BBAA", barChart);
       setBarChartData(barChart);
       setPieChartData(pieChart);

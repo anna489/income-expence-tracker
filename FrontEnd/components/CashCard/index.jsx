@@ -2,7 +2,7 @@ import React from "react";
 
 const CashCard = () => {
   return (
-    <div className="card w-[32%] bg-[#3364d7] h-[300px] shadow-xl   mt-10">
+    <div className="card w-[32%] bg-[#3364d7] h-[300px] shadow-xl   mt-10 skeleton">
       <img className="w-full h-full absolute" src="/images/Noise.png" />
       <div className="flex gap-2 p-4">
         <img className="bg-white rounded-full" src="/images/Vector.png" />

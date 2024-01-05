@@ -5,7 +5,7 @@ import { thousandify } from "../../utils";
 
 const Income = ({ totalIncome }) => {
   return (
-    <div className="card-body  ">
+    <div className="card-body animate-pulse  ">
       <h2 className="card-title">
         <Doth />
         Your Income

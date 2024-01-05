@@ -42,15 +42,20 @@ export default function PieChart({ pieChartData }) {
         ],
       },
     });
+
     return () => {
       if (chartInstance.current) {
         chartInstance.current.destroy();
       }
     };
   }, []);
+
   return (
-    <div className="justify-center flex items-center skeleton">
-      <canvas ref={chartRef} style={{ width: "400px", height: "200px" }} />
+    <div className="justify-center flex items-center ">
+      <canvas
+        ref={chartRef}
+        style={{ width: "400px", height: "200px", border: "1px" }}
+      />
     </div>
   );
 }

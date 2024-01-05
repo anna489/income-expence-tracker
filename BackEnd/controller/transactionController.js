@@ -40,13 +40,12 @@ const createTransaction = async (req, res) => {
 };
 
 const getTotalIncomeExpense = async (req, res) => {
+  const { user_id } = req.params;
   try {
     console.log("TOTAL");
-    const data =
-      await sql`SELECT transaction_type , SUM(amount) as total 
+    const data = await sql`SELECT transaction_type , SUM(amount) as total 
       FROM transaction   
-      WHERE 
-      transaction.userId=${user_id} 
+      where user_id=${user_id}
       GROUP BY transaction_type `;
     console.log("data", data);
 

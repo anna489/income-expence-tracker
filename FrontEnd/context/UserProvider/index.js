@@ -53,10 +53,6 @@ const UserProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
-    setUser(null);
-  };
-
   const signup = async () => {
     if (
       !formUserData.email ||
@@ -97,7 +93,7 @@ const UserProvider = ({ children }) => {
         formUserData,
         changeFormUserData,
         login,
-        logout,
+
         signup,
       }}
     >
