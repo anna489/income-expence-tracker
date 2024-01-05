@@ -4,8 +4,9 @@ import PieChart from "@/components/Chart/Piechart";
 import { TransactionContext } from "../../context/TransactionContext";
 
 const Chart = () => {
-  const { barChartData } = useContext(TransactionContext);
-  const { pieChartData } = useContext(TransactionContext);
+  const { barChartData, pieChartData, getChartData } =
+    useContext(TransactionContext);
+
   return (
     <div className=" flex justify-center gap-10">
       <div className="card w-[50%] h-[] bg-base-100 shadow-xl mt-10 ">
@@ -16,6 +17,14 @@ const Chart = () => {
             <Barchart barChartData={barChartData} />
           </div>
         </div>
+        <button
+          className="btn btn-primary w-full"
+          onClick={() => {
+            getChartData(), console.log("barchartdata", barChartData);
+          }}
+        >
+          bar
+        </button>
       </div>
 
       <div className="card w-[50%] bg-base-100 shadow-xl mt-10 ">
@@ -24,6 +33,14 @@ const Chart = () => {
           <div className="border border-full flex justify-start item-center"></div>
           <div className="flex justify-center mt-10 item-center">
             <PieChart pieChartData={pieChartData} />
+            <button
+              className="btn btn-primary w-full"
+              onClick={() => {
+                console.log("barchartdata", pieChartData);
+              }}
+            >
+              pie
+            </button>
           </div>
         </div>
       </div>

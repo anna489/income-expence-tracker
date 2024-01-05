@@ -40,12 +40,12 @@ const createTransaction = async (req, res) => {
 };
 
 const getTotalIncomeExpense = async (req, res) => {
-  const { user_id } = req.params;
+  const { userId } = req.params;
   try {
     console.log("TOTAL");
     const data = await sql`SELECT transaction_type , SUM(amount) as total 
-      FROM transaction   
-      where user_id=${user_id}
+      FROM transaction tr
+      WHERE tr.user_id=${userId}
       GROUP BY transaction_type `;
     console.log("data", data);
 
@@ -67,34 +67,34 @@ const getTotalIncomeExpense = async (req, res) => {
 
 const getChartData = async (req, res) => {
   try {
-    const { user_id } = req.params;
+    const { userId } = req.params;
 
     const pieChart = await sql`
       SELECT 
         ct.name as category_name, 
         SUM(amount) as total 
       FROM transaction tr 
-      WHERE 
-          transaction.userId=${user_id}
       INNER JOIN 
         category ct ON tr.category_id=ct.id
+      WHERE tr.user_id=${userId}
       GROUP BY category_name;`;
 
     const barChart = await sql`
-      SELECT
-        EXTRACT(MONTH FROM updatedat) AS month,
-        TO_CHAR(updatedat, 'Month') AS month_name,
-        SUM(CASE WHEN transaction_type = 'INC' THEN amount ELSE 0 END) AS income,
-        SUM(CASE WHEN transaction_type = 'EXP' THEN amount ELSE 0 END) AS expense
-      FROM
-          transaction 
-      WHERE 
-          transaction.userId=${user_id}
-      GROUP BY
-          month, month_name
-      ORDER BY
-          month;
+        SELECT
+          EXTRACT(MONTH FROM updatedat) AS month,
+          TO_CHAR(updatedat, 'Month') AS month_name,
+          SUM(CASE WHEN transaction_type = 'INC' THEN amount ELSE 0 END) AS income,
+          SUM(CASE WHEN transaction_type = 'EXP' THEN amount ELSE 0 END) AS expense
+        FROM
+            transaction tr
+        WHERE 
+            tr.user_id=${userId}
+        GROUP BY
+            month, month_name
+        ORDER BY
+            month;
       `;
+
     const labels = barChart.map((row) => row.month_name);
     const incomeData = barChart.map((row) => row.income);
     const expenseData = barChart.map((row) => row.expense);

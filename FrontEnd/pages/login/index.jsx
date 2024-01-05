@@ -9,8 +9,6 @@ const Login = () => {
     router.push("/signup");
   };
 
-  useEffect(() => {}, []);
-
   const { changeFormUserData, login } = useContext(UserContext);
 
   return (

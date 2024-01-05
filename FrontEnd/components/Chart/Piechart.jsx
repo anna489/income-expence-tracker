@@ -51,7 +51,7 @@ export default function PieChart({ pieChartData }) {
   }, []);
 
   return (
-    <div className="justify-center flex items-center ">
+    <div className="justify-center flex items-center">
       <canvas
         ref={chartRef}
         style={{ width: "400px", height: "200px", border: "1px" }}

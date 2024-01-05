@@ -5,7 +5,7 @@ import { thousandify } from "../../utils";
 
 const Expence = ({ totalExpence }) => {
   return (
-    <div className="card-body  animate-pulse  ">
+    <div className="card-body">
       <h2 className="card-title">
         <DothBlue />
         Total Expences
@@ -18,6 +18,7 @@ const Expence = ({ totalExpence }) => {
           </span>
         )}
       </div>
+      {!totalExpence && <div className="skeleton h-9 w-full"></div>}
       <p className="text-[#64748B]">Your Expence Amount</p>
       <h2 className="flex ">
         <Down />

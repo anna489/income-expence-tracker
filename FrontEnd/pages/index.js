@@ -31,7 +31,7 @@ export default function Home() {
     console.log("START");
     const {
       data: { totalIncome, totalExpense },
-    } = await myAxios.get("/transactions/total" + user.id);
+    } = await myAxios.get("/transactions/totals");
     setTotals({ ...totals, totalIncome, totalExpense });
     console.log("END");
   };
@@ -45,7 +45,7 @@ export default function Home() {
     <div>
       <DashNav />
       <div className="px-[100px] bg-[#F3F4F6] h-full">
-        <div className="flex justify-center gap-10  ">
+        <div className="flex justify-center gap-10 ">
           <CashCard />
           <div className="card w-[32%] h-[300px] bg-base-100 shadow-xl mt-10">
             <Income totalIncome={totals.totalIncome} />

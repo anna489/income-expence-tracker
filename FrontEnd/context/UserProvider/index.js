@@ -44,7 +44,7 @@ const UserProvider = ({ children }) => {
       });
       console.log("DDD++++++>", data.user);
       setUser(data.user);
-      router.push("/dashboard");
+      router.push("/");
     } catch (error) {
       console.log("error", error);
       toast.error(`aldaa garlaa newterhed`, { autoClose: 3000 });
