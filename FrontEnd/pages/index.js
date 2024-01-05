@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { UserContext } from "../../context/UserProvider";
-import Chart from "../../components/Chart/Chart";
-import DashNav from "@/components/DashNav";
-import AddTransaction from "../../components/AddTransaction";
-import Income from "../../components/Income";
-import Expence from "../../components/Expence";
-import CashCard from "../../components/CashCard";
-import myAxios from "@/utils/axios";
+import { UserContext } from "../context/UserProvider";
+import Chart from "../components/Chart/Chart";
+import DashNav from "../components/DashNav";
+import AddTransaction from "../components/AddTransaction";
+import Income from "../components/Income";
+import Expence from "../components/Expence";
+import CashCard from "../components/CashCard";
+import myAxios from "../utils/axios";
 
 export default function Home() {
   const router = useRouter();
@@ -39,6 +39,7 @@ export default function Home() {
     console.log("EE");
     getTotalIncExp();
   }, [reFetch]);
+
   return (
     <div>
       <DashNav />
