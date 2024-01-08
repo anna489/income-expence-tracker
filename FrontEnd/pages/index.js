@@ -13,8 +13,8 @@ import { TransactionContext } from "../context/TransactionContext";
 export default function Home() {
   const router = useRouter();
   const { user } = useContext(UserContext);
-  const [reFetch, setReFetch] = useState(false);
-  const { transactions } = useContext(TransactionContext);
+
+  const { transactions, reFetch } = useContext(TransactionContext);
   useEffect(() => {
     if (!user) {
       router.push("/login");
@@ -29,16 +29,22 @@ export default function Home() {
 
   const getTotalIncExp = async () => {
     console.log("START");
-    const {
-      data: { totalIncome, totalExpense },
-    } = await myAxios.get("/transactions/totals");
-    setTotals({ ...totals, totalIncome, totalExpense });
-    console.log("END");
+    try {
+      const {
+        data: { totalIncome, totalExpense },
+      } = await myAxios.get("/transactions/totals");
+      console.log("TTTTT", totalIncome);
+      setTotals({ ...totals, totalIncome, totalExpense });
+      console.log("END");
+    } catch (error) {
+      console.log("ERRR", error);
+    }
   };
 
   useEffect(() => {
     console.log("EE");
     getTotalIncExp();
+    console.log("Finish");
   }, [reFetch]);
 
   return (

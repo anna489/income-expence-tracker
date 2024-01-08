@@ -7,8 +7,8 @@ const DashNav = () => {
   return (
     <div className="navbar bg-base-100 px-[100px]">
       {/* Logo */}
-      <div className="flex-1 ">
-        <a className="btn btn-ghost text-xl">
+      <div className="flex-1 gap-4">
+        <a className="btn btn-ghost text-xl" onClick={() => router.push("/")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="29"
@@ -23,7 +23,7 @@ const DashNav = () => {
           </svg>
         </a>
         <button
-          onClick={() => router.push("/dashboard")}
+          onClick={() => router.push("/")}
           className="mr-4 font-semibold text-[16px]"
         >
           Dashboard

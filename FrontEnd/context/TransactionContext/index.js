@@ -74,13 +74,13 @@ const TransactionProvider = ({ children }) => {
     // console.log("GET-CHART-DATA");
     console.log("UUUUU", user);
     try {
-      // const {
-      //   data: { barChart, pieChart },
-      // } = await myAxios.get("/transactions/chartData/" + user.id);
-      // console.log("HERE: ");
-      // console.log("BBAA", barChart);
-      // setBarChartData(barChart);
-      // setPieChartData(pieChart);
+      const {
+        data: { barChart, pieChart },
+      } = await myAxios.get("/transactions/chartData/" + user.id);
+      console.log("HERE: ");
+      console.log("BBAA", barChart);
+      setBarChartData(barChart);
+      setPieChartData(pieChart);
 
       const res = await myAxios.get("/transactions/chartData/" + user.id);
       console.log("RES: ", res);

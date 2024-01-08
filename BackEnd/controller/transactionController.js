@@ -6,7 +6,7 @@ const getAllTransaction = async (req, res) => {
   try {
     const transactions =
       await sql`SELECT tr.name, tr.amount, tr.updatedat,tr.id, tr.transaction_type, ct.avatarimg, ct.color FROM transaction tr INNER JOIN category ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} ORDER BY updatedat DESC `;
-    console.log("gettransaction", transactions);
+
     res.status(200).json({ message: "success", transactions });
   } catch (error) {
     console.log("ERR", error);
@@ -68,7 +68,6 @@ const getTotalIncomeExpense = async (req, res) => {
 const getChartData = async (req, res) => {
   try {
     const { userId } = req.params;
-
     const pieChart = await sql`
       SELECT 
         ct.name as category_name, 

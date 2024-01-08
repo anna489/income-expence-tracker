@@ -12,6 +12,7 @@ export default function Barchart({ barChartData }) {
     const myChartRef = chartRef.current.getContext("2d");
 
     chartInstance.current = new Chart(myChartRef, {
+      // const data ={}
       type: "bar",
       data: {
         labels: barChartData?.labels,
